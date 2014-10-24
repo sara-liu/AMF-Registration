@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
+	<portlet>
+		<portlet-name>amf-registration-portlet</portlet-name>
+		<display-name>Amf Registration Portlet</display-name>
+		<portlet-class>com.amf.registration.portlet.RegistrationPortlet</portlet-class>
+		<init-param>
+			<name>copy-request-parameters</name>
+			<value>true</value>
+		</init-param>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/registration/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>content/Language</resource-bundle>
+		<portlet-info>
+			<title>AMF Registration Portlet</title>
+			<short-title>AMFRegistrationPortlet</short-title>
+			<keywords/>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>amf-event-monitor-portlet</portlet-name>
+		<display-name>AMF Event Monitor Portlet</display-name>
+		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/eventmonitor/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>content/Language</resource-bundle>
+		<portlet-info>
+			<title>AMF Event Monitor Portlet</title>
+			<short-title>AMFEventMonitorPortlet</short-title>
+			<keywords/>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>amf-search-portlet</portlet-name>
+		<display-name>AMF Search Portlet</display-name>
+		<portlet-class>com.amf.registration.portlet.SearchPortlet</portlet-class>
+		<init-param>
+			<name>copy-request-parameters</name>
+			<value>true</value>
+		</init-param>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/search/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>content/Language</resource-bundle>
+		<portlet-info>
+			<title>AMF Search Portlet</title>
+			<short-title>AMFSearchPortlet</short-title>
+			<keywords/>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+		<supported-publishing-event>
+			<qname xmlns:x="http://amf.com/searchUser">x:zip</qname>
+		</supported-publishing-event>
+	</portlet>
+	<portlet>
+		<portlet-name>amf-search-results-portlet</portlet-name>
+		<display-name>AMF Search Results Portlet</display-name>
+		<portlet-class>com.amf.registration.portlet.SearchResultsPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/search_results/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>content/Language</resource-bundle>
+		<portlet-info>
+			<title>AMF Search Results Portlet</title>
+			<short-title>AMFSearchResultsPortlet</short-title>
+			<keywords/>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+		<supported-processing-event>
+			<qname xmlns:x="http://amf.com/searchUser">x:zip</qname>
+		</supported-processing-event>
+	</portlet>
+	<event-definition>
+		<qname xmlns:x="http://amf.com/searchUser">x:zip</qname>
+		<value-type>java.lang.String</value-type>
+	</event-definition>
+</portlet-app>

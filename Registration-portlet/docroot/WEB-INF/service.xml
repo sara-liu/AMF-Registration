@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+
+<service-builder package-path="com.amf.registration">
+	<author>Sara Liu</author>
+	<namespace>Registration</namespace>
+	<entity name="Address" uuid="true" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="addressId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="address1" type="String" />
+		<column name="address2" type="String" />
+		<column name="city" type="String" />
+		<column name="state" type="String" />
+		<column name="zip" type="String" />
+
+		<!--  Finder methods -->
+
+		<finder name="Zip" return-type="Collection">
+			<finder-column name="zip" />
+		</finder>
+	</entity>
+	<entity name="EventMonitor" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="eventMonitorId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="startDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="eventType" type="String" />
+		<column name="ipAddress" type="String" />
+
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="startDate" />
+		</order>
+
+		<!--  Finder methods -->
+
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="EventType" return-type="Collection">
+			<finder-column name="eventType" />
+		</finder>
+		<finder name="U_ET" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="eventType" />
+		</finder>
+	</entity>
+	<exceptions>
+		<exception>RegistrationAddress</exception>
+		<exception>RegistrationAddressCity</exception>
+		<exception>RegistrationAddressZip</exception>
+		<exception>RegistrationAddressState</exception>
+	</exceptions>
+</service-builder>

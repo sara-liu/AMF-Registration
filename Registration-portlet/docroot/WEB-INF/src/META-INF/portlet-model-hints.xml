@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.amf.registration.model.Address">
+		<field name="uuid" type="String" />
+		<field name="addressId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="address1" type="String" />
+		<field name="address2" type="String" />
+		<field name="city" type="String" />
+		<field name="state" type="String" />
+		<field name="zip" type="String" />
+	</model>
+	<model name="com.amf.registration.model.EventMonitor">
+		<field name="eventMonitorId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="startDate" type="Date" />
+		<field name="eventType" type="String" />
+		<field name="ipAddress" type="String" />
+	</model>
+</model-hints>

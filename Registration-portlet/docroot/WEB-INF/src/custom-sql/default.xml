@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<custom-sql>
+	<sql id="com.amf.registration.service.persistence.AddressFinder.countByZip">
+		<![CDATA[
+			SELECT
+				COUNT(*) AS COUNT_VALUE
+			FROM
+				User_
+			WHERE
+				(User_.userId IN(
+					SELECT
+						Registration_Address.userId
+					FROM
+						Registration_Address
+					WHERE
+						Registration_Address.zip = ?
+				))
+		]]>
+	</sql>
+	<sql id="com.amf.registration.service.persistence.AddressFinder.findByZip">
+		<![CDATA[
+			SELECT
+				User_.userId as userId
+			FROM
+				User_
+			WHERE
+				(User_.userId IN(
+					SELECT
+						Registration_Address.userId
+					FROM
+						Registration_Address
+					WHERE
+						Registration_Address.zip = ?
+				))
+		]]>
+	</sql>
+</custom-sql>
