@@ -23,6 +23,7 @@ import com.liferay.portal.model.User;
 import com.liferay.portal.service.ServiceContext;
 
 import java.util.List;
+
 public class AddressLocalServiceImpl extends AddressLocalServiceBaseImpl {
 
 	public Address addAddress(

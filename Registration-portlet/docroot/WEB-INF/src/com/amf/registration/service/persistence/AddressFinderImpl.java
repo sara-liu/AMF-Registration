@@ -22,12 +22,12 @@ import com.liferay.portal.kernel.dao.orm.SQLQuery;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.dao.orm.Type;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.model.User;
 import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 
 import java.util.Iterator;
 import java.util.List;
+
 public class AddressFinderImpl extends BasePersistenceImpl<Address>
 	implements AddressFinder {
 
@@ -73,7 +73,7 @@ public class AddressFinderImpl extends BasePersistenceImpl<Address>
 		}
 	}
 
-	public List<User> findByZip(String zip, int start, int end)
+	public List findByZip(String zip, int start, int end)
 			throws SystemException {
 
 		Session session = null;

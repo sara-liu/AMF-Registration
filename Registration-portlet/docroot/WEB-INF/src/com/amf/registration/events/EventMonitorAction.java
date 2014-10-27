@@ -24,6 +24,7 @@ import com.liferay.portal.util.PortalUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 public class EventMonitorAction extends Action {
 
 	public void run(HttpServletRequest request, HttpServletResponse response)
