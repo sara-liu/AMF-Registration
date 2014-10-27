@@ -2,5 +2,5 @@
 <!DOCTYPE project>
 
 <project name="Registration-portlet" basedir="." default="deploy">
-	<import file="D:\SDK\sdk-6.1.20\portlets/build-common-portlet.xml" />
+	<import file="../build-common-portlet.xml" />
 </project>
