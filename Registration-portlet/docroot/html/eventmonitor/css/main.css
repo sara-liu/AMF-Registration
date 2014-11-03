@@ -1,0 +1,19 @@
+.amf-event-monitor-portlet {
+	.results-row td {
+		border-style: none;
+		font-family: Consolas;
+		font-size: 13px;
+	}
+
+	.results-header th {
+		display: none;
+	}
+
+	.results-row.alt td {
+		background: transparent;
+	}
+
+	.taglib-search-iterator-page-iterator-bottom {
+		display: none;
+	}
+}

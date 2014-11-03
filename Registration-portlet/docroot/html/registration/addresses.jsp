@@ -17,14 +17,14 @@
 <aui:fieldset column="<%= true %>" cssClass="aui-w50">
 	<liferay-ui:error key="address1-format-error" message="please-enter-a-valid-address" />
 
-	<aui:input name="address" />
+	<aui:input name="address" label="address1" required="true" />
 
 	<liferay-ui:error key="address2-format-error" message="please-enter-a-valid-address2" />
 
 	<aui:input name="address2" />
 </aui:fieldset>
 <aui:fieldset column="<%= true %>" cssClass="aui-w50">
-	<aui:input name="city" />
+	<aui:input name="city" required="true" />
 
 	<aui:select name="state">
 

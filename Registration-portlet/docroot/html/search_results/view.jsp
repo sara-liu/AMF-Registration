@@ -26,6 +26,8 @@ PortletURL portletURL = renderResponse.createRenderURL();
 portletURL.setParameter("mvcPath", "/html/search_results/view.jsp");
 %>
 
+<h5><%= LanguageUtil.format(pageContext, "search-results-for-x", HtmlUtil.escape(zip)) %></h5>
+
 <liferay-ui:search-container
 	delta= "<%= 5 %>"
 	emptyResultsMessage="no-results-found-please-try-a-different-search-criteria"

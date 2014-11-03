@@ -35,34 +35,39 @@
 	<liferay-ui:error exception="<%= UserReminderQueryException.class %>" message="please-enter-a-valid-security-answer" />
 
 	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
-		<aui:input label="user-name" name="userName" required="true" />
-
 		<aui:input label="first-name" name="first_Name" required="true" />
 
 		<aui:input label="last-name" name="last_Name" required="true" />
-	</aui:fieldset>
-	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+
 		<aui:input label="email-address" name="email_Address" required="true" />
 
-		<aui:select label="gender" name="male">
+		<aui:input label="username" name="username" required="true" />
+	</aui:fieldset>
+	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+		<aui:select label="male" name="male">
 			<aui:option label="male" value="true" />
 			<aui:option label="female" value="false" />
 		</aui:select>
 
-		<aui:input model="<%= Contact.class %>" name="birthday" required="true" />
+		<aui:input model="<%= Contact.class %>" name="birthday" />
 
-		<aui:input label="new-password" name="password1" required="true" type="password" />
+		<aui:input label="password" name="password1" required="true" type="password" />
 
-		<aui:input label="enter-again" name="password2" required="true" type="password" />
+		<aui:input label="confirm-password" name="password2" required="true" type="password" />
 	</aui:fieldset>
 
-	<h3><liferay-ui:message key="Phone" /></h3>
+	<h3><liferay-ui:message key="phone" /></h3>
 
-		<%@ include file="/html/registration/phone_number.jsp" %>
+	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+		<aui:input label="home-phone" name="home_phone" />
+	</aui:fieldset>
+	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+		<aui:input label="mobile-phone" name="mobile_phone" />
+	</aui:fieldset>
 
-	<h3><liferay-ui:message key="billing-address" /></h3>
+	<h3><liferay-ui:message key="billing-address(us-only)" /></h3>
 
-		<%@ include file="/html/registration/addresses.jsp" %>
+	<%@ include file="/html/registration/addresses.jsp" %>
 
 	<h3><liferay-ui:message key="misc" /></h3>
 
@@ -73,11 +78,9 @@
 		<aui:option label="what-is-your-favorite-actor?" />
 	</aui:select>
 
-	<aui:input label="serurity-answer" name="security_answer" />
+	<aui:input label="answer" name="security_answer" />
 
-	<h4><liferay-ui:message key="terms-of-use" /><h4>
-
-	<aui:input label="term-of-use-message" name="accepted_Tou" type="checkbox" />
+	<aui:input label="terms-of-use" name="accepted_Tou" type="checkbox" />
 
 	<aui:button type="submit" />
 </aui:form>

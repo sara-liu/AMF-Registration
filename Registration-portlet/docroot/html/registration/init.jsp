@@ -23,9 +23,7 @@ page import="com.amf.registration.RegistrationAddressException" %><%@
 page import="com.amf.registration.RegistrationAddressStateException" %><%@
 page import="com.amf.registration.RegistrationAddressZipException" %><%@
 page import="com.amf.registration.model.Address" %><%@
-page import="com.amf.registration.util.CountryConstants" %><%@
-page import="com.amf.registration.util.PhoneTypeConstants" %><%@
-page import="com.amf.registration.util.PhoneTypeIdConstants" %>
+page import="com.amf.registration.util.CountryConstants" %>
 
 <%@ page import="com.liferay.portal.ContactBirthdayException" %><%@
 page import="com.liferay.portal.ContactFirstNameException" %><%@

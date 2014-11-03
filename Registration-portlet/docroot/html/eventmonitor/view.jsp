@@ -79,32 +79,24 @@ else {
 	>
 
 		<liferay-ui:search-container-column-text
-			name="date-time"
-			value="<%= dateFormatDateTime.format(eventMonitor.getStartDate()) %>"
-		/>
-
-		<liferay-ui:search-container-column-text
 			buffer="buffer"
-			name="user-info"
 		>
 
 			<%
+			buffer.append(dateFormatDateTime.format(eventMonitor.getStartDate()));
+			buffer.append(StringPool.THREE_SPACES);
 			buffer.append(eventMonitor.getUserName());
+			buffer.append(StringPool.THREE_SPACES);
 			buffer.append(StringPool.OPEN_PARENTHESIS);
 			buffer.append(String.valueOf(eventMonitor.getUserId()));
 			buffer.append(StringPool.CLOSE_PARENTHESIS);
+			buffer.append(StringPool.THREE_SPACES);
+			buffer.append(eventMonitor.getIpAddress());
+			buffer.append(StringPool.THREE_SPACES);
+			buffer.append(eventMonitor.getEventType());
 			%>
 
 		</liferay-ui:search-container-column-text>
-		<liferay-ui:search-container-column-text
-			name="ip-address"
-			value="<%= eventMonitor.getIpAddress() %>"
-		/>
-
-		<liferay-ui:search-container-column-text
-			name="event-type"
-			value="<%= eventMonitor.getEventType() %>"
-		/>
 	</liferay-ui:search-container-row>
 
 	<liferay-ui:search-iterator />

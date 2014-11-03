@@ -23,7 +23,6 @@ import com.amf.registration.service.EventMonitorLocalServiceUtil;
 import com.amf.registration.util.CountryConstants;
 import com.amf.registration.util.EventTypeConstants;
 import com.amf.registration.util.IpConstants;
-import com.amf.registration.util.PhoneTypeConstants;
 
 import com.liferay.portal.ContactBirthdayException;
 import com.liferay.portal.ContactFirstNameException;
@@ -42,9 +41,12 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.Contact;
 import com.liferay.portal.model.Country;
+import com.liferay.portal.model.ListType;
+import com.liferay.portal.model.ListTypeConstants;
 import com.liferay.portal.model.Region;
 import com.liferay.portal.model.User;
 import com.liferay.portal.service.CountryServiceUtil;
+import com.liferay.portal.service.ListTypeServiceUtil;
 import com.liferay.portal.service.PhoneLocalServiceUtil;
 import com.liferay.portal.service.RegionServiceUtil;
 import com.liferay.portal.service.ServiceContext;
@@ -73,7 +75,7 @@ public class RegistrationPortlet extends MVCPortlet {
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
-		String screenName = ParamUtil.getString(actionRequest, "userName");
+		String screenName = ParamUtil.getString(actionRequest, "username");
 		String firstName = ParamUtil.getString(actionRequest, "first_Name");
 		String lastName = ParamUtil.getString(actionRequest, "last_Name");
 		String emailAddress = ParamUtil.getString(
@@ -86,31 +88,8 @@ public class RegistrationPortlet extends MVCPortlet {
 		String password1 = ParamUtil.getString(actionRequest, "password1");
 		String password2 = ParamUtil.getString(actionRequest, "password2");
 
-		String phonePrimary = ParamUtil.getString(
-			actionRequest, "phonePrimary");
-
-		boolean mobilePhonePrimary = false;
-		boolean homePhonePrimary = false;
-
-		if (phonePrimary.equals(PhoneTypeConstants.MOBILE_PHONE)) {
-			mobilePhonePrimary = true;
-		}
-		else {
-			homePhonePrimary = true;
-		}
-
-		String mobilePhoneNumber = ParamUtil.getString(
-			actionRequest, "mobilePhoneNumber");
-		String mobilePhoneExtension = ParamUtil.getString(
-			actionRequest, "mobilePhoneExtension");
-		int mobilePhoneTypeId = ParamUtil.getInteger(
-			actionRequest, "mobilePhoneTypeId");
-		String homePhoneNumber = ParamUtil.getString(
-			actionRequest,"homePhoneNumber");
-		String homePhoneExtension = ParamUtil.getString(
-			actionRequest, "homePhoneExtension");
-		int homePhoneTypeId = ParamUtil.getInteger(
-			actionRequest, "homePhoneTypeId");
+		String homePhone = ParamUtil.getString(actionRequest,"home_phone");
+		String mobilePhone = ParamUtil.getString(actionRequest, "mobile_phone");
 
 		String address = ParamUtil.getString(actionRequest, "address");
 		String address2 = ParamUtil.getString(actionRequest, "address2");
@@ -131,8 +110,8 @@ public class RegistrationPortlet extends MVCPortlet {
 
 		validate(
 			password1, password2, emailAddress, firstName, lastName,
-			birthdayMonth, birthdayDay, birthdayYear, mobilePhoneNumber,
-			homePhoneNumber, address, address2, city, state, zip,
+			birthdayMonth, birthdayDay, birthdayYear, mobilePhone,
+			homePhone, address, address2, city, state, zip,
 			sercurityAnswer, acceptedTou);
 
 		User user = UserLocalServiceUtil.addUser(
@@ -147,15 +126,21 @@ public class RegistrationPortlet extends MVCPortlet {
 		UserLocalServiceUtil.updateAgreedToTermsOfUse(
 			user.getUserId(), acceptedTou);
 
-		PhoneLocalServiceUtil.addPhone(
-			user.getUserId(), Contact.class.getName(), user.getContactId(),
-			mobilePhoneNumber, mobilePhoneExtension, mobilePhoneTypeId,
-			mobilePhonePrimary);
+		List<ListType> phoneTypes = ListTypeServiceUtil.getListTypes(
+			ListTypeConstants.CONTACT_PHONE);
 
-		PhoneLocalServiceUtil.addPhone(
-			user.getUserId(), Contact.class.getName(), user.getContactId(),
-			homePhoneNumber, homePhoneExtension, homePhoneTypeId,
-			homePhonePrimary);
+		for (ListType phoneType : phoneTypes) {
+			if ((phoneType.getName().equals("personal") &&
+				 Validator.isNotNull(homePhone)) ||
+				(phoneType.getName().equals("mobile-phone") &&
+				 Validator.isNotNull(mobilePhone))) {
+
+				PhoneLocalServiceUtil.addPhone(
+					user.getUserId(), Contact.class.getName(),
+					user.getContactId(), mobilePhone, null,
+					phoneType.getListTypeId(), false);
+			}
+		}
 
 		AddressLocalServiceUtil.addAddress(
 			user.getUserId(), address, address2, city, state, zip,
@@ -233,15 +218,19 @@ public class RegistrationPortlet extends MVCPortlet {
 
 		validatePassword(password1, password2);
 
-		if ((mobilePhoneNumber.length() != 10) ||
-			(homePhoneNumber.length() != 10)) {
+		if ((Validator.isNotNull(mobilePhoneNumber) &&
+			 (mobilePhoneNumber.length() != 10)) ||
+			((Validator.isNotNull(mobilePhoneNumber)) &&
+			 (homePhoneNumber.length() != 10))) {
 
 			throw new PhoneNumberException();
 		}
 
 		if (!Validator.isAlphanumericName(address) ||
-			!Validator.isAlphanumericName(address2) ||
-			(address.length() > 255) || (address2.length() > 255)) {
+			(address.length() > 255) ||
+			(Validator.isNotNull(address2) && 
+			 (!Validator.isAlphanumericName(address2) ||
+			 (address2.length() > 255)))) {
 
 			throw new RegistrationAddressException();
 		}

@@ -1,0 +1,13 @@
+.amf-search-results-portlet {
+	.results-row td {
+		border-style: none;
+	}
+
+	.results-header th {
+		display: none;
+	}
+
+	.results-row.alt td {
+		background: transparent;
+	}
+}
