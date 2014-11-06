@@ -17,7 +17,6 @@
 <portlet:actionURL name="registrationUser" var="registrationURL" />
 
 <aui:form action="<%= registrationURL %>" method="post" name="fm">
-	<h3><liferay-ui:message key="basic-info" /></h3>
 
 	<liferay-ui:error exception="<%= ContactBirthdayException.class %>" message="only-over-13-years-old-can-regist" />
 	<liferay-ui:error exception="<%= ContactFirstNameException.class %>" message="please-enter-a-valid-first-name" />
@@ -34,53 +33,55 @@
 	<liferay-ui:error exception="<%= UserPasswordException.class %>" message="please-enter-a-valid-password" />
 	<liferay-ui:error exception="<%= UserReminderQueryException.class %>" message="please-enter-a-valid-security-answer" />
 
-	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
-		<aui:input label="first-name" name="first_Name" required="true" />
+	<aui:fieldset label="basic-info">
+		<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+			<aui:input label="first-name" name="first_Name" required="true" />
 
-		<aui:input label="last-name" name="last_Name" required="true" />
+			<aui:input label="last-name" name="last_Name" required="true" />
 
-		<aui:input label="email-address" name="email_Address" required="true" />
+			<aui:input label="email-address" name="email_Address" required="true" />
 
-		<aui:input label="username" name="username" required="true" />
-	</aui:fieldset>
-	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
-		<aui:select label="male" name="male">
-			<aui:option label="male" value="true" />
-			<aui:option label="female" value="false" />
-		</aui:select>
+			<aui:input label="username" name="username" required="true" />
+		</aui:fieldset>
 
-		<aui:input model="<%= Contact.class %>" name="birthday" />
+		<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+			<aui:select label="gender" name="male">
+				<aui:option label="male" value="true" />
+				<aui:option label="female" value="false" />
+			</aui:select>
 
-		<aui:input label="password" name="password1" required="true" type="password" />
+			<aui:input model="<%= Contact.class %>" name="birthday" />
 
-		<aui:input label="confirm-password" name="password2" required="true" type="password" />
-	</aui:fieldset>
+			<aui:input label="password" name="password1" required="true" type="password" />
 
-	<h3><liferay-ui:message key="phone" /></h3>
-
-	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
-		<aui:input label="home-phone" name="home_phone" />
-	</aui:fieldset>
-	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
-		<aui:input label="mobile-phone" name="mobile_phone" />
+			<aui:input label="confirm-password" name="password2" required="true" type="password" />
+		</aui:fieldset>
 	</aui:fieldset>
 
-	<h3><liferay-ui:message key="billing-address(us-only)" /></h3>
+	<aui:fieldset label="phone">
+		<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+			<aui:input label="home-phone" name="home_phone" />
+		</aui:fieldset>
+
+		<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+			<aui:input label="mobile-phone" name="mobile_phone" />
+		</aui:fieldset>
+	</aui:fieldset>
 
 	<%@ include file="/html/registration/addresses.jsp" %>
 
-	<h3><liferay-ui:message key="misc" /></h3>
+	<aui:fieldset label="misc">
+		<aui:select label="sercurity-question" name="security_question" width="300">
+			<aui:option label="what-is-your-mother's-maiden-name?" />
+			<aui:option label="what-is-the-make-of-your-first-car?" />
+			<aui:option label="what-is-your-high-school-mascot?" />
+			<aui:option label="what-is-your-favorite-actor?" />
+		</aui:select>
 
-	<aui:select label="sercurity-question" name="security_question" width="300">
-		<aui:option label="what-is-your-mother's-maiden-name?" />
-		<aui:option label="what-is-the-make-of-your-first-car?" />
-		<aui:option label="what-is-your-high-school-mascot?" />
-		<aui:option label="what-is-your-favorite-actor?" />
-	</aui:select>
+		<aui:input label="answer" name="security_answer" />
 
-	<aui:input label="answer" name="security_answer" />
+		<aui:input label="terms-of-use" name="accepted_Tou" type="checkbox" />
 
-	<aui:input label="terms-of-use" name="accepted_Tou" type="checkbox" />
-
-	<aui:button type="submit" />
+		<aui:button type="submit" />
+	</aui:fieldset>
 </aui:form>

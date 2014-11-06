@@ -14,35 +14,37 @@
  */
 --%>
 
-<aui:fieldset column="<%= true %>" cssClass="aui-w50">
-	<liferay-ui:error key="address1-format-error" message="please-enter-a-valid-address" />
+<aui:fieldset label="billing-address(us-only)">
+	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+		<liferay-ui:error key="address1-format-error" message="please-enter-a-valid-address" />
 
-	<aui:input name="address" label="address1" required="true" />
+		<aui:input label="address1" name="address" required="true" />
 
-	<liferay-ui:error key="address2-format-error" message="please-enter-a-valid-address2" />
+		<liferay-ui:error key="address2-format-error" message="please-enter-a-valid-address2" />
 
-	<aui:input name="address2" />
-</aui:fieldset>
-<aui:fieldset column="<%= true %>" cssClass="aui-w50">
-	<aui:input name="city" required="true" />
+		<aui:input name="address2" />
+	</aui:fieldset>
+	<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+		<aui:input name="city" required="true" />
 
-	<aui:select name="state">
+		<aui:select name="state">
 
-	<%
-	Country country = CountryServiceUtil.getCountryByName(CountryConstants.UNITED_STATES);
+		<%
+		Country country = CountryServiceUtil.getCountryByName(CountryConstants.UNITED_STATES);
 
-	List<Region> regions = RegionServiceUtil.getRegions(country.getCountryId());
+		List<Region> regions = RegionServiceUtil.getRegions(country.getCountryId());
 
-	for (Region region : regions) {
-	%>
+		for (Region region : regions) {
+		%>
 
-		<aui:option label="<%= region.getName() %>" value="<%= region.getName() %>" />
+			<aui:option label="<%= region.getName() %>" value="<%= region.getName() %>" />
 
-	<%
-	}
-	%>
+		<%
+		}
+		%>
 
-	</aui:select>
+		</aui:select>
 
-	<aui:input label="zip" name="zip" required="true" />
+		<aui:input label="zip" name="zip" required="true" />
+	</aui:fieldset>
 </aui:fieldset>

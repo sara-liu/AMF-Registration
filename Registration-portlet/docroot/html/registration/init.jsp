@@ -37,7 +37,6 @@ page import="com.liferay.portal.UserPasswordException" %><%@
 page import="com.liferay.portal.UserReminderQueryException" %><%@
 page import="com.liferay.portal.model.Contact" %><%@
 page import="com.liferay.portal.model.Country" %><%@
-page import="com.liferay.portal.model.Phone" %><%@
 page import="com.liferay.portal.model.Region" %><%@
 page import="com.liferay.portal.service.CountryServiceUtil" %><%@
 page import="com.liferay.portal.service.RegionServiceUtil" %><%@

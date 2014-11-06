@@ -1,19 +1,20 @@
 .amf-event-monitor-portlet {
-	.results-row td {
+	.results-grid {
 		border-style: none;
-		font-family: Consolas;
-		font-size: 13px;
 	}
 
 	.results-header th {
 		display: none;
 	}
 
-	.results-row.alt td {
-		background: transparent;
+	.results-row td {
+		background: #EEF0F2;
+		border-style: none;
+		font-family: Consolas;
+		font-size: 13px;
 	}
 
-	.taglib-search-iterator-page-iterator-bottom {
-		display: none;
+	.results-row.alt td {
+		background: #EEF0F2;
 	}
 }

@@ -1,5 +1,5 @@
 .amf-search-results-portlet {
-	.results-row td {
+	.results-grid {
 		border-style: none;
 	}
 
@@ -7,7 +7,12 @@
 		display: none;
 	}
 
+	.results-row td {
+		background: #EEF0F2;
+		border-style: none;
+	}
+
 	.results-row.alt td {
-		background: transparent;
+		background: #EEF0F2;
 	}
 }

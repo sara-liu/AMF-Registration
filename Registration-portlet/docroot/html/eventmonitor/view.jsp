@@ -66,10 +66,10 @@ else {
 }
 %>
 
-<liferay-ui:search-container-results
-	results="<%= eventMonitorResults %>"
-	total="<%= eventMonitorCount %>"
-/>
+	<liferay-ui:search-container-results
+		results="<%= eventMonitorResults %>"
+		total="<%= eventMonitorCount %>"
+	/>
 
 	<liferay-ui:search-container-row
 		className="com.amf.registration.model.EventMonitor"

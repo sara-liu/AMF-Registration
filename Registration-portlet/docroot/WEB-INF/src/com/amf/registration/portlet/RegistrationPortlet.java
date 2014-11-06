@@ -120,6 +120,8 @@ public class RegistrationPortlet extends MVCPortlet {
 			firstName, null, lastName, 0, 0, male, birthdayMonth, birthdayDay,
 			birthdayYear, null, null, null, null, null, false, serviceContext);
 
+		UserLocalServiceUtil.updatePasswordReset(user.getUserId(), false);
+
 		UserLocalServiceUtil.updateReminderQuery(
 			user.getUserId(), sercurityQuestion, sercurityAnswer);
 
@@ -220,7 +222,7 @@ public class RegistrationPortlet extends MVCPortlet {
 
 		if ((Validator.isNotNull(mobilePhoneNumber) &&
 			 (mobilePhoneNumber.length() != 10)) ||
-			((Validator.isNotNull(mobilePhoneNumber)) &&
+			(Validator.isNotNull(mobilePhoneNumber) &&
 			 (homePhoneNumber.length() != 10))) {
 
 			throw new PhoneNumberException();
