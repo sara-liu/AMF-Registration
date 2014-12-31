@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	<bean id="com.amf.registration.service.AddressLocalService" class="com.amf.registration.service.impl.AddressLocalServiceImpl" />
-	<bean id="com.amf.registration.service.persistence.AddressPersistence" class="com.amf.registration.service.persistence.AddressPersistenceImpl" parent="basePersistence" />
-	<bean id="com.amf.registration.service.persistence.AddressFinder" class="com.amf.registration.service.persistence.AddressFinderImpl" parent="basePersistence" />
+	<bean id="com.amf.registration.service.AMFUserLocalService" class="com.amf.registration.service.impl.AMFUserLocalServiceImpl" />
+	<bean id="com.amf.registration.service.persistence.AMFUserPersistence" class="com.amf.registration.service.persistence.AMFUserPersistenceImpl" parent="basePersistence" />
+	<bean id="com.amf.registration.service.persistence.AMFUserFinder" class="com.amf.registration.service.persistence.AMFUserFinderImpl" parent="basePersistence" />
 	<bean id="com.amf.registration.service.EventMonitorLocalService" class="com.amf.registration.service.impl.EventMonitorLocalServiceImpl" />
 	<bean id="com.amf.registration.service.persistence.EventMonitorPersistence" class="com.amf.registration.service.persistence.EventMonitorPersistenceImpl" parent="basePersistence" />
 </beans>

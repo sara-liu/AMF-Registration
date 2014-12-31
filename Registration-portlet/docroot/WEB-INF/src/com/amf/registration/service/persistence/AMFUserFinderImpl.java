@@ -14,7 +14,7 @@
 
 package com.amf.registration.service.persistence;
 
-import com.amf.registration.model.Address;
+import com.amf.registration.model.AMFUser;
 
 import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
@@ -22,20 +22,22 @@ import com.liferay.portal.kernel.dao.orm.SQLQuery;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.dao.orm.Type;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.model.User;
+import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-public class AddressFinderImpl extends BasePersistenceImpl<Address>
-	implements AddressFinder {
+public class AMFUserFinderImpl extends BasePersistenceImpl<AMFUser>
+	implements AMFUserFinder {
 
 	public static String COUNT_BY_ZIP =
-		AddressFinder.class.getName() + ".countByZip";
+		AMFUserFinder.class.getName() + ".countByZip";
 
 	public static String FIND_BY_ZIP =
-		AddressFinder.class.getName() + ".findByZip";
+		AMFUserFinder.class.getName() + ".findByZip";
 
 	public int countByZip(String zip) throws SystemException {
 		Session session = null;
@@ -73,10 +75,12 @@ public class AddressFinderImpl extends BasePersistenceImpl<Address>
 		}
 	}
 
-	public List findByZip(String zip, int start, int end)
-			throws SystemException {
+	public List<User> findByZip(String zip, int start, int end)
+		throws SystemException {
 
 		Session session = null;
+
+		List<User> users = new ArrayList<User>();
 
 		try {
 			session = openSession();
@@ -91,7 +95,16 @@ public class AddressFinderImpl extends BasePersistenceImpl<Address>
 
 			qPos.add(zip);
 
-			return (List)QueryUtil.list(q, getDialect(), start, end);
+			List<Long> userIds = (List<Long>)QueryUtil.list(
+				q, getDialect(), start, end);
+
+			for (long userId : userIds) {
+				User user = UserLocalServiceUtil.fetchUser(userId);
+
+				users.add(user);
+			}
+
+			return users;
 		}
 		catch (Exception e) {
 			throw new SystemException(e);

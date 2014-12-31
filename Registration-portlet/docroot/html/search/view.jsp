@@ -16,14 +16,10 @@
 
 <%@ include file="/html/search/init.jsp" %>
 
-<%
-long groupId = themeDisplay.getScopeGroupId();
-%>
-
 <portlet:actionURL name="searchUser" var="searchUserURL" />
 
 <aui:form action="<%= searchUserURL %>" method="post" name="fm">
-	<liferay-ui:error exception="<%= RegistrationAddressZipException.class %>" message="please-enter-a-valid-zip" />
+	<liferay-ui:error exception="<%= AddressZipException.class %>" message="please-enter-a-valid-zip" />
 
 	<aui:input label="enter-us-zip" name="zip" />
 

@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
  *
@@ -12,13 +11,17 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ include file="/html/init.jsp" %>
+package com.amf.registration.service.persistence;
 
-<%@ page import="com.amf.registration.model.Address" %><%@
-page import="com.amf.registration.service.AMFUserLocalServiceUtil" %>
+/**
+ * @author Sara Liu
+ */
+public interface AMFUserFinder {
+	public int countByZip(java.lang.String zip)
+		throws com.liferay.portal.kernel.exception.SystemException;
 
-<%@ page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
-page import="com.liferay.portal.kernel.util.Validator" %><%@
-page import="com.liferay.portal.service.UserLocalServiceUtil" %>
+	public java.util.List<com.liferay.portal.model.User> findByZip(
+		java.lang.String zip, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
+}

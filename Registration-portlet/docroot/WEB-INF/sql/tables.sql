@@ -19,3 +19,7 @@ create table Registration_EventMonitor (
 	eventType VARCHAR(75) null,
 	ipAddress VARCHAR(75) null
 );
+
+create table user_ (
+	userId LONG not null primary key
+);

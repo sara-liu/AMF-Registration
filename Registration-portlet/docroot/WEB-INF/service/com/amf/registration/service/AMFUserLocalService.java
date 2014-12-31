@@ -24,70 +24,68 @@ import com.liferay.portal.service.InvokableLocalService;
 import com.liferay.portal.service.PersistedModelLocalService;
 
 /**
- * The interface for the event monitor local service.
+ * The interface for the a m f user local service.
  *
  * <p>
  * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
  * </p>
  *
  * @author Sara Liu
- * @see EventMonitorLocalServiceUtil
- * @see com.amf.registration.service.base.EventMonitorLocalServiceBaseImpl
- * @see com.amf.registration.service.impl.EventMonitorLocalServiceImpl
+ * @see AMFUserLocalServiceUtil
+ * @see com.amf.registration.service.base.AMFUserLocalServiceBaseImpl
+ * @see com.amf.registration.service.impl.AMFUserLocalServiceImpl
  * @generated
  */
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
-public interface EventMonitorLocalService extends BaseLocalService,
+public interface AMFUserLocalService extends BaseLocalService,
 	InvokableLocalService, PersistedModelLocalService {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this interface directly. Always use {@link EventMonitorLocalServiceUtil} to access the event monitor local service. Add custom service methods to {@link com.amf.registration.service.impl.EventMonitorLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify or reference this interface directly. Always use {@link AMFUserLocalServiceUtil} to access the a m f user local service. Add custom service methods to {@link com.amf.registration.service.impl.AMFUserLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
 
 	/**
-	* Adds the event monitor to the database. Also notifies the appropriate model listeners.
+	* Adds the a m f user to the database. Also notifies the appropriate model listeners.
 	*
-	* @param eventMonitor the event monitor
-	* @return the event monitor that was added
+	* @param amfUser the a m f user
+	* @return the a m f user that was added
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.EventMonitor addEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor)
+	public com.amf.registration.model.AMFUser addAMFUser(
+		com.amf.registration.model.AMFUser amfUser)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Creates a new event monitor with the primary key. Does not add the event monitor to the database.
+	* Creates a new a m f user with the primary key. Does not add the a m f user to the database.
 	*
-	* @param eventMonitorId the primary key for the new event monitor
-	* @return the new event monitor
+	* @param userId the primary key for the new a m f user
+	* @return the new a m f user
 	*/
-	public com.amf.registration.model.EventMonitor createEventMonitor(
-		long eventMonitorId);
+	public com.amf.registration.model.AMFUser createAMFUser(long userId);
 
 	/**
-	* Deletes the event monitor with the primary key from the database. Also notifies the appropriate model listeners.
+	* Deletes the a m f user with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param eventMonitorId the primary key of the event monitor
-	* @return the event monitor that was removed
-	* @throws PortalException if a event monitor with the primary key could not be found
+	* @param userId the primary key of the a m f user
+	* @return the a m f user that was removed
+	* @throws PortalException if a a m f user with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.EventMonitor deleteEventMonitor(
-		long eventMonitorId)
+	public com.amf.registration.model.AMFUser deleteAMFUser(long userId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Deletes the event monitor from the database. Also notifies the appropriate model listeners.
+	* Deletes the a m f user from the database. Also notifies the appropriate model listeners.
 	*
-	* @param eventMonitor the event monitor
-	* @return the event monitor that was removed
+	* @param amfUser the a m f user
+	* @return the a m f user that was removed
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.EventMonitor deleteEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor)
+	public com.amf.registration.model.AMFUser deleteAMFUser(
+		com.amf.registration.model.AMFUser amfUser)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery();
@@ -155,21 +153,19 @@ public interface EventMonitorLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.amf.registration.model.EventMonitor fetchEventMonitor(
-		long eventMonitorId)
+	public com.amf.registration.model.AMFUser fetchAMFUser(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Returns the event monitor with the primary key.
+	* Returns the a m f user with the primary key.
 	*
-	* @param eventMonitorId the primary key of the event monitor
-	* @return the event monitor
-	* @throws PortalException if a event monitor with the primary key could not be found
+	* @param userId the primary key of the a m f user
+	* @return the a m f user
+	* @throws PortalException if a a m f user with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.amf.registration.model.EventMonitor getEventMonitor(
-		long eventMonitorId)
+	public com.amf.registration.model.AMFUser getAMFUser(long userId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -180,53 +176,53 @@ public interface EventMonitorLocalService extends BaseLocalService,
 			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Returns a range of all the event monitors.
+	* Returns a range of all the a m f users.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
 	* </p>
 	*
-	* @param start the lower bound of the range of event monitors
-	* @param end the upper bound of the range of event monitors (not inclusive)
-	* @return the range of event monitors
+	* @param start the lower bound of the range of a m f users
+	* @param end the upper bound of the range of a m f users (not inclusive)
+	* @return the range of a m f users
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitors(
+	public java.util.List<com.amf.registration.model.AMFUser> getAMFUsers(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Returns the number of event monitors.
+	* Returns the number of a m f users.
 	*
-	* @return the number of event monitors
+	* @return the number of a m f users
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEventMonitorsCount()
+	public int getAMFUsersCount()
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Updates the event monitor in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	* Updates the a m f user in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
-	* @param eventMonitor the event monitor
-	* @return the event monitor that was updated
+	* @param amfUser the a m f user
+	* @return the a m f user that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.EventMonitor updateEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor)
+	public com.amf.registration.model.AMFUser updateAMFUser(
+		com.amf.registration.model.AMFUser amfUser)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Updates the event monitor in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	* Updates the a m f user in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
-	* @param eventMonitor the event monitor
-	* @param merge whether to merge the event monitor with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
-	* @return the event monitor that was updated
+	* @param amfUser the a m f user
+	* @param merge whether to merge the a m f user with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
+	* @return the a m f user that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.EventMonitor updateEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor, boolean merge)
+	public com.amf.registration.model.AMFUser updateAMFUser(
+		com.amf.registration.model.AMFUser amfUser, boolean merge)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -247,44 +243,12 @@ public interface EventMonitorLocalService extends BaseLocalService,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
 
-	public com.amf.registration.model.EventMonitor addEventMonitor(
-		long userId, java.lang.String userName, long companyId,
-		java.lang.String eventType, java.lang.String ipAddress)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public int countByZip(java.lang.String zip)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
 
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		long userId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		long userId, java.lang.String eventType, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		java.lang.String eventType, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEventMonitorCount()
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEventMonitorCount(long userId)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEventMonitorCount(long userId, java.lang.String eventType)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEventMonitorCount(java.lang.String eventType)
-		throws com.liferay.portal.kernel.exception.SystemException;
+	public java.util.List<com.liferay.portal.model.User> findByZip(
+		java.lang.String zip, int start, int end)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
 }

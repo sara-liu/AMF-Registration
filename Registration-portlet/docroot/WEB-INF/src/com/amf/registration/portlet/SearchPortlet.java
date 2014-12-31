@@ -14,8 +14,7 @@
 
 package com.amf.registration.portlet;
 
-import com.amf.registration.RegistrationAddressZipException;
-
+import com.liferay.portal.AddressZipException;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.util.bridges.mvc.MVCPortlet;
@@ -32,12 +31,12 @@ public class SearchPortlet extends MVCPortlet {
 
 	public void searchUser(
 			ActionRequest actionRequest, ActionResponse actionResponse)
-		throws RegistrationAddressZipException {
+		throws AddressZipException {
 
 		String zip = ParamUtil.getString(actionRequest, "zip");
 
 		if (!Validator.isDigit(zip) || (zip.length() != 5)) {
-			throw new RegistrationAddressZipException();
+			throw new AddressZipException();
 		}
 
 		QName qName = new QName("http://amf.com/searchUser", "zip");

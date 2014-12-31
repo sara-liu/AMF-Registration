@@ -19,75 +19,73 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
 import com.liferay.portal.service.InvokableLocalService;
 
 /**
- * The utility for the event monitor local service. This utility wraps {@link com.amf.registration.service.impl.EventMonitorLocalServiceImpl} and is the primary access point for service operations in application layer code running on the local server.
+ * The utility for the a m f user local service. This utility wraps {@link com.amf.registration.service.impl.AMFUserLocalServiceImpl} and is the primary access point for service operations in application layer code running on the local server.
  *
  * <p>
  * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
  * </p>
  *
  * @author Sara Liu
- * @see EventMonitorLocalService
- * @see com.amf.registration.service.base.EventMonitorLocalServiceBaseImpl
- * @see com.amf.registration.service.impl.EventMonitorLocalServiceImpl
+ * @see AMFUserLocalService
+ * @see com.amf.registration.service.base.AMFUserLocalServiceBaseImpl
+ * @see com.amf.registration.service.impl.AMFUserLocalServiceImpl
  * @generated
  */
-public class EventMonitorLocalServiceUtil {
+public class AMFUserLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to {@link com.amf.registration.service.impl.EventMonitorLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to {@link com.amf.registration.service.impl.AMFUserLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
-	* Adds the event monitor to the database. Also notifies the appropriate model listeners.
+	* Adds the a m f user to the database. Also notifies the appropriate model listeners.
 	*
-	* @param eventMonitor the event monitor
-	* @return the event monitor that was added
+	* @param amfUser the a m f user
+	* @return the a m f user that was added
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.EventMonitor addEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor)
+	public static com.amf.registration.model.AMFUser addAMFUser(
+		com.amf.registration.model.AMFUser amfUser)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().addEventMonitor(eventMonitor);
+		return getService().addAMFUser(amfUser);
 	}
 
 	/**
-	* Creates a new event monitor with the primary key. Does not add the event monitor to the database.
+	* Creates a new a m f user with the primary key. Does not add the a m f user to the database.
 	*
-	* @param eventMonitorId the primary key for the new event monitor
-	* @return the new event monitor
+	* @param userId the primary key for the new a m f user
+	* @return the new a m f user
 	*/
-	public static com.amf.registration.model.EventMonitor createEventMonitor(
-		long eventMonitorId) {
-		return getService().createEventMonitor(eventMonitorId);
+	public static com.amf.registration.model.AMFUser createAMFUser(long userId) {
+		return getService().createAMFUser(userId);
 	}
 
 	/**
-	* Deletes the event monitor with the primary key from the database. Also notifies the appropriate model listeners.
+	* Deletes the a m f user with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param eventMonitorId the primary key of the event monitor
-	* @return the event monitor that was removed
-	* @throws PortalException if a event monitor with the primary key could not be found
+	* @param userId the primary key of the a m f user
+	* @return the a m f user that was removed
+	* @throws PortalException if a a m f user with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.EventMonitor deleteEventMonitor(
-		long eventMonitorId)
+	public static com.amf.registration.model.AMFUser deleteAMFUser(long userId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteEventMonitor(eventMonitorId);
+		return getService().deleteAMFUser(userId);
 	}
 
 	/**
-	* Deletes the event monitor from the database. Also notifies the appropriate model listeners.
+	* Deletes the a m f user from the database. Also notifies the appropriate model listeners.
 	*
-	* @param eventMonitor the event monitor
-	* @return the event monitor that was removed
+	* @param amfUser the a m f user
+	* @return the a m f user that was removed
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.EventMonitor deleteEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor)
+	public static com.amf.registration.model.AMFUser deleteAMFUser(
+		com.amf.registration.model.AMFUser amfUser)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteEventMonitor(eventMonitor);
+		return getService().deleteAMFUser(amfUser);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
@@ -165,25 +163,23 @@ public class EventMonitorLocalServiceUtil {
 		return getService().dynamicQueryCount(dynamicQuery);
 	}
 
-	public static com.amf.registration.model.EventMonitor fetchEventMonitor(
-		long eventMonitorId)
+	public static com.amf.registration.model.AMFUser fetchAMFUser(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchEventMonitor(eventMonitorId);
+		return getService().fetchAMFUser(userId);
 	}
 
 	/**
-	* Returns the event monitor with the primary key.
+	* Returns the a m f user with the primary key.
 	*
-	* @param eventMonitorId the primary key of the event monitor
-	* @return the event monitor
-	* @throws PortalException if a event monitor with the primary key could not be found
+	* @param userId the primary key of the a m f user
+	* @return the a m f user
+	* @throws PortalException if a a m f user with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.EventMonitor getEventMonitor(
-		long eventMonitorId)
+	public static com.amf.registration.model.AMFUser getAMFUser(long userId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitor(eventMonitorId);
+		return getService().getAMFUser(userId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(
@@ -194,59 +190,59 @@ public class EventMonitorLocalServiceUtil {
 	}
 
 	/**
-	* Returns a range of all the event monitors.
+	* Returns a range of all the a m f users.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
 	* </p>
 	*
-	* @param start the lower bound of the range of event monitors
-	* @param end the upper bound of the range of event monitors (not inclusive)
-	* @return the range of event monitors
+	* @param start the lower bound of the range of a m f users
+	* @param end the upper bound of the range of a m f users (not inclusive)
+	* @return the range of a m f users
 	* @throws SystemException if a system exception occurred
 	*/
-	public static java.util.List<com.amf.registration.model.EventMonitor> getEventMonitors(
+	public static java.util.List<com.amf.registration.model.AMFUser> getAMFUsers(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitors(start, end);
+		return getService().getAMFUsers(start, end);
 	}
 
 	/**
-	* Returns the number of event monitors.
+	* Returns the number of a m f users.
 	*
-	* @return the number of event monitors
+	* @return the number of a m f users
 	* @throws SystemException if a system exception occurred
 	*/
-	public static int getEventMonitorsCount()
+	public static int getAMFUsersCount()
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitorsCount();
+		return getService().getAMFUsersCount();
 	}
 
 	/**
-	* Updates the event monitor in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	* Updates the a m f user in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
-	* @param eventMonitor the event monitor
-	* @return the event monitor that was updated
+	* @param amfUser the a m f user
+	* @return the a m f user that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.EventMonitor updateEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor)
+	public static com.amf.registration.model.AMFUser updateAMFUser(
+		com.amf.registration.model.AMFUser amfUser)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().updateEventMonitor(eventMonitor);
+		return getService().updateAMFUser(amfUser);
 	}
 
 	/**
-	* Updates the event monitor in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	* Updates the a m f user in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
-	* @param eventMonitor the event monitor
-	* @param merge whether to merge the event monitor with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
-	* @return the event monitor that was updated
+	* @param amfUser the a m f user
+	* @param merge whether to merge the a m f user with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
+	* @return the a m f user that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.EventMonitor updateEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor, boolean merge)
+	public static com.amf.registration.model.AMFUser updateAMFUser(
+		com.amf.registration.model.AMFUser amfUser, boolean merge)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().updateEventMonitor(eventMonitor, merge);
+		return getService().updateAMFUser(amfUser, merge);
 	}
 
 	/**
@@ -273,77 +269,36 @@ public class EventMonitorLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
-	public static com.amf.registration.model.EventMonitor addEventMonitor(
-		long userId, java.lang.String userName, long companyId,
-		java.lang.String eventType, java.lang.String ipAddress)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .addEventMonitor(userId, userName, companyId, eventType,
-			ipAddress);
+	public static int countByZip(java.lang.String zip)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().countByZip(zip);
 	}
 
-	public static java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitor(start, end);
-	}
-
-	public static java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		long userId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitor(userId, start, end);
-	}
-
-	public static java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		long userId, java.lang.String eventType, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitor(userId, eventType, start, end);
-	}
-
-	public static java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		java.lang.String eventType, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitor(eventType, start, end);
-	}
-
-	public static int getEventMonitorCount()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitorCount();
-	}
-
-	public static int getEventMonitorCount(long userId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitorCount(userId);
-	}
-
-	public static int getEventMonitorCount(long userId,
-		java.lang.String eventType)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitorCount(userId, eventType);
-	}
-
-	public static int getEventMonitorCount(java.lang.String eventType)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitorCount(eventType);
+	public static java.util.List<com.liferay.portal.model.User> findByZip(
+		java.lang.String zip, int start, int end)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().findByZip(zip, start, end);
 	}
 
 	public static void clearService() {
 		_service = null;
 	}
 
-	public static EventMonitorLocalService getService() {
+	public static AMFUserLocalService getService() {
 		if (_service == null) {
 			InvokableLocalService invokableLocalService = (InvokableLocalService)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(),
-					EventMonitorLocalService.class.getName());
+					AMFUserLocalService.class.getName());
 
-			if (invokableLocalService instanceof EventMonitorLocalService) {
-				_service = (EventMonitorLocalService)invokableLocalService;
+			if (invokableLocalService instanceof AMFUserLocalService) {
+				_service = (AMFUserLocalService)invokableLocalService;
 			}
 			else {
-				_service = new EventMonitorLocalServiceClp(invokableLocalService);
+				_service = new AMFUserLocalServiceClp(invokableLocalService);
 			}
 
-			ReferenceRegistry.registerReference(EventMonitorLocalServiceUtil.class,
+			ReferenceRegistry.registerReference(AMFUserLocalServiceUtil.class,
 				"_service");
 		}
 
@@ -353,8 +308,8 @@ public class EventMonitorLocalServiceUtil {
 	/**
 	 * @deprecated
 	 */
-	public void setService(EventMonitorLocalService service) {
+	public void setService(AMFUserLocalService service) {
 	}
 
-	private static EventMonitorLocalService _service;
+	private static AMFUserLocalService _service;
 }

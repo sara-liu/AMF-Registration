@@ -2184,8 +2184,8 @@ public class EventMonitorPersistenceImpl extends BasePersistenceImpl<EventMonito
 		FinderCacheUtil.removeCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
 	}
 
-	@BeanReference(type = AddressPersistence.class)
-	protected AddressPersistence addressPersistence;
+	@BeanReference(type = AMFUserPersistence.class)
+	protected AMFUserPersistence amfUserPersistence;
 	@BeanReference(type = EventMonitorPersistence.class)
 	protected EventMonitorPersistence eventMonitorPersistence;
 	@BeanReference(type = ResourcePersistence.class)

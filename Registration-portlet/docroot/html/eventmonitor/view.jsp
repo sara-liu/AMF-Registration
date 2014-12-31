@@ -37,67 +37,68 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-
 	url="<%= portletURL.toString() %>"
 />
 
-<liferay-ui:search-container
-	emptyResultsMessage="there-are-no-events"
-	iteratorURL="<%= portletURL %>"
->
-
-<%
-long userId = themeDisplay.getUserId();
-
-List<EventMonitor> eventMonitorResults = null;
-
-int eventMonitorCount = 0;
-
-if (tabs1.equals(EventTypeConstants.REGISTRATION)) {
-	eventMonitorResults = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitor(EventTypeConstants.REGISTRATION, searchContainer.getStart(), searchContainer.getEnd()) : EventMonitorLocalServiceUtil.getEventMonitor(userId, EventTypeConstants.REGISTRATION, searchContainer.getStart(), searchContainer.getEnd());
-
-	eventMonitorCount = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitorCount(EventTypeConstants.REGISTRATION) : EventMonitorLocalServiceUtil.getEventMonitorCount(userId, EventTypeConstants.REGISTRATION);
-}
-else if (tabs1.equals(EventTypeConstants.LOGIN)) {
-	eventMonitorResults = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitor(EventTypeConstants.LOGIN, searchContainer.getStart(), searchContainer.getEnd()) : EventMonitorLocalServiceUtil.getEventMonitor(userId, EventTypeConstants.LOGIN, searchContainer.getStart(), searchContainer.getEnd());
-
-	eventMonitorCount = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitorCount(EventTypeConstants.LOGIN) : EventMonitorLocalServiceUtil.getEventMonitorCount(userId, EventTypeConstants.LOGIN);
-}
-else {
-	eventMonitorResults = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitor(searchContainer.getStart(), searchContainer.getEnd()) : EventMonitorLocalServiceUtil.getEventMonitor(userId, searchContainer.getStart(), searchContainer.getEnd());
-
-	eventMonitorCount = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitorCount() : EventMonitorLocalServiceUtil.getEventMonitorCount(userId);
-}
-%>
-
-	<liferay-ui:search-container-results
-		results="<%= eventMonitorResults %>"
-		total="<%= eventMonitorCount %>"
-	/>
-
-	<liferay-ui:search-container-row
-		className="com.amf.registration.model.EventMonitor"
-		escapedModel="<%= true %>"
-		keyProperty="eventMonitorId"
-		modelVar="eventMonitor"
+<div class="result-data">
+	<liferay-ui:search-container
+		emptyResultsMessage="there-are-no-events"
+		iteratorURL="<%= portletURL %>"
 	>
 
-		<liferay-ui:search-container-column-text
-			buffer="buffer"
+	<%
+	long userId = themeDisplay.getUserId();
+
+	List<EventMonitor> eventMonitorResults = null;
+
+	int eventMonitorCount = 0;
+
+	if (tabs1.equals(EventTypeConstants.REGISTRATION)) {
+		eventMonitorResults = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitor(EventTypeConstants.REGISTRATION, searchContainer.getStart(), searchContainer.getEnd()) : EventMonitorLocalServiceUtil.getEventMonitor(userId, EventTypeConstants.REGISTRATION, searchContainer.getStart(), searchContainer.getEnd());
+
+		eventMonitorCount = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitorCount(EventTypeConstants.REGISTRATION) : EventMonitorLocalServiceUtil.getEventMonitorCount(userId, EventTypeConstants.REGISTRATION);
+	}
+	else if (tabs1.equals(EventTypeConstants.LOGIN)) {
+		eventMonitorResults = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitor(EventTypeConstants.LOGIN, searchContainer.getStart(), searchContainer.getEnd()) : EventMonitorLocalServiceUtil.getEventMonitor(userId, EventTypeConstants.LOGIN, searchContainer.getStart(), searchContainer.getEnd());
+
+		eventMonitorCount = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitorCount(EventTypeConstants.LOGIN) : EventMonitorLocalServiceUtil.getEventMonitorCount(userId, EventTypeConstants.LOGIN);
+	}
+	else {
+		eventMonitorResults = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitor(searchContainer.getStart(), searchContainer.getEnd()) : EventMonitorLocalServiceUtil.getEventMonitor(userId, searchContainer.getStart(), searchContainer.getEnd());
+
+		eventMonitorCount = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitorCount() : EventMonitorLocalServiceUtil.getEventMonitorCount(userId);
+	}
+	%>
+
+		<liferay-ui:search-container-results
+			results="<%= eventMonitorResults %>"
+			total="<%= eventMonitorCount %>"
+		/>
+
+		<liferay-ui:search-container-row
+			className="com.amf.registration.model.EventMonitor"
+			escapedModel="<%= true %>"
+			modelVar="eventMonitor"
 		>
 
-			<%
-			buffer.append(dateFormatDateTime.format(eventMonitor.getStartDate()));
-			buffer.append(StringPool.THREE_SPACES);
-			buffer.append(eventMonitor.getUserName());
-			buffer.append(StringPool.THREE_SPACES);
-			buffer.append(StringPool.OPEN_PARENTHESIS);
-			buffer.append(String.valueOf(eventMonitor.getUserId()));
-			buffer.append(StringPool.CLOSE_PARENTHESIS);
-			buffer.append(StringPool.THREE_SPACES);
-			buffer.append(eventMonitor.getIpAddress());
-			buffer.append(StringPool.THREE_SPACES);
-			buffer.append(eventMonitor.getEventType());
-			%>
+			<liferay-ui:search-container-column-text
+				buffer="buffer"
+			>
 
-		</liferay-ui:search-container-column-text>
-	</liferay-ui:search-container-row>
+				<%
+				buffer.append(dateFormatDateTime.format(eventMonitor.getStartDate()));
+				buffer.append(StringPool.THREE_SPACES);
+				buffer.append(eventMonitor.getUserName());
+				buffer.append(StringPool.THREE_SPACES);
+				buffer.append(StringPool.OPEN_PARENTHESIS);
+				buffer.append(String.valueOf(eventMonitor.getUserId()));
+				buffer.append(StringPool.CLOSE_PARENTHESIS);
+				buffer.append(StringPool.THREE_SPACES);
+				buffer.append(eventMonitor.getIpAddress());
+				buffer.append(StringPool.THREE_SPACES);
+				buffer.append(eventMonitor.getEventType());
+				%>
 
-	<liferay-ui:search-iterator />
-</liferay-ui:search-container>
+			</liferay-ui:search-container-column-text>
+		</liferay-ui:search-container-row>
+
+		<liferay-ui:search-iterator />
+	</liferay-ui:search-container>
+</div>

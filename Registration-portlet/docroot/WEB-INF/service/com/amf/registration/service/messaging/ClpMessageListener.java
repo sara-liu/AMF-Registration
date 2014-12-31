@@ -14,7 +14,7 @@
 
 package com.amf.registration.service.messaging;
 
-import com.amf.registration.service.AddressLocalServiceUtil;
+import com.amf.registration.service.AMFUserLocalServiceUtil;
 import com.amf.registration.service.ClpSerializer;
 import com.amf.registration.service.EventMonitorLocalServiceUtil;
 
@@ -36,7 +36,7 @@ public class ClpMessageListener extends BaseMessageListener {
 
 		if (command.equals("undeploy") &&
 				servletContextName.equals(getServletContextName())) {
-			AddressLocalServiceUtil.clearService();
+			AMFUserLocalServiceUtil.clearService();
 
 			EventMonitorLocalServiceUtil.clearService();
 		}

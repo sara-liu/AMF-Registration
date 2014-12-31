@@ -18,14 +18,13 @@
 
 <%@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
-<%@ page import="com.amf.registration.RegistrationAddressCityException" %><%@
-page import="com.amf.registration.RegistrationAddressException" %><%@
-page import="com.amf.registration.RegistrationAddressStateException" %><%@
-page import="com.amf.registration.RegistrationAddressZipException" %><%@
-page import="com.amf.registration.model.Address" %><%@
+<%@ page import="com.amf.registration.model.Address" %><%@
 page import="com.amf.registration.util.CountryConstants" %>
 
-<%@ page import="com.liferay.portal.ContactBirthdayException" %><%@
+<%@ page import="com.liferay.portal.AddressCityException" %><%@
+page import="com.liferay.portal.AddressStreetException" %><%@
+page import="com.liferay.portal.AddressZipException" %><%@
+page import="com.liferay.portal.ContactBirthdayException" %><%@
 page import="com.liferay.portal.ContactFirstNameException" %><%@
 page import="com.liferay.portal.ContactLastNameException" %><%@
 page import="com.liferay.portal.DuplicateUserEmailAddressException" %><%@
@@ -35,6 +34,7 @@ page import="com.liferay.portal.TermsOfUseException" %><%@
 page import="com.liferay.portal.UserEmailAddressException" %><%@
 page import="com.liferay.portal.UserPasswordException" %><%@
 page import="com.liferay.portal.UserReminderQueryException" %><%@
+page import="com.liferay.portal.UserScreenNameException" %><%@
 page import="com.liferay.portal.model.Contact" %><%@
 page import="com.liferay.portal.model.Country" %><%@
 page import="com.liferay.portal.model.Region" %><%@

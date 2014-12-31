@@ -1,20 +1,22 @@
 .amf-event-monitor-portlet {
-	.results-grid {
-		border-style: none;
-	}
+	.result-data {
+		.results-grid {
+			border-style: none;
+		}
 
-	.results-header th {
-		display: none;
-	}
+		.results-header th {
+			display: none;
+		}
 
-	.results-row td {
-		background: #EEF0F2;
-		border-style: none;
-		font-family: Consolas;
-		font-size: 13px;
-	}
+		.results-row td {
+			background: #EEF0F2;
+			border-style: none;
+			font-family: Consolas;
+			font-size: 13px;
+		}
 
-	.results-row.alt td {
-		background: #EEF0F2;
+		.results-row.alt td {
+			background: #EEF0F2;
+		}
 	}
 }

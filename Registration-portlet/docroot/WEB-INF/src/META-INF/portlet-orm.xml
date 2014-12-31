@@ -7,21 +7,9 @@
 			<access>PROPERTY</access>
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
-	<mapped-superclass class="com.amf.registration.model.impl.AddressModelImpl">
+	<mapped-superclass class="com.amf.registration.model.impl.AMFUserModelImpl">
 		<attributes>
-			<id name="addressId" />
-			<basic name="uuid">
-				<column name="UUID_" />
-			</basic>
-			<basic name="companyId" />
-			<basic name="userId" />
-			<basic name="address1" />
-			<basic name="address2" />
-			<basic name="city" />
-			<basic name="state">
-				<column name="STATE_" />
-			</basic>
-			<basic name="zip" />
+			<id name="userId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -45,8 +33,8 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<entity class="com.amf.registration.model.impl.AddressImpl" name="Address">
-		<table name="Registration_Address" />
+	<entity class="com.amf.registration.model.impl.AMFUserImpl" name="AMFUser">
+		<table name="user_" />
 		<attributes />
 	</entity>
 	<entity class="com.amf.registration.model.impl.EventMonitorImpl" name="EventMonitor">

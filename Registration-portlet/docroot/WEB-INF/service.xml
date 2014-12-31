@@ -4,31 +4,6 @@
 <service-builder package-path="com.amf.registration">
 	<author>Sara Liu</author>
 	<namespace>Registration</namespace>
-	<entity name="Address" uuid="true" local-service="true" remote-service="false">
-
-		<!-- PK fields -->
-
-		<column name="addressId" type="long" primary="true" />
-
-		<!-- Audit fields -->
-
-		<column name="companyId" type="long" />
-		<column name="userId" type="long" />
-
-		<!-- Other fields -->
-
-		<column name="address1" type="String" />
-		<column name="address2" type="String" />
-		<column name="city" type="String" />
-		<column name="state" type="String" />
-		<column name="zip" type="String" />
-
-		<!--  Finder methods -->
-
-		<finder name="Zip" return-type="Collection">
-			<finder-column name="zip" />
-		</finder>
-	</entity>
 	<entity name="EventMonitor" local-service="true" remote-service="false">
 
 		<!-- PK fields -->
@@ -66,10 +41,10 @@
 			<finder-column name="eventType" />
 		</finder>
 	</entity>
-	<exceptions>
-		<exception>RegistrationAddress</exception>
-		<exception>RegistrationAddressCity</exception>
-		<exception>RegistrationAddressZip</exception>
-		<exception>RegistrationAddressState</exception>
-	</exceptions>
+	<entity name="AMFUser" local-service="true" remote-service="false" table="user_">
+
+		<!-- PK fields -->
+
+		<column name="userId" type="long" primary="true" />
+	</entity>
 </service-builder>

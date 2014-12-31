@@ -19,6 +19,8 @@ import com.amf.registration.util.EventTypeConstants;
 
 import com.liferay.portal.kernel.events.Action;
 import com.liferay.portal.kernel.events.ActionException;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.User;
 import com.liferay.portal.util.PortalUtil;
 
@@ -31,24 +33,18 @@ public class EventMonitorAction extends Action {
 		throws ActionException {
 
 		try {
-			doRun(request, response);
-		}
-		catch (Exception e) {
-			throw new ActionException(e);
-		}
-	}
+			String ipAddress = request.getRemoteAddr();
 
-	protected void doRun(
-			HttpServletRequest request, HttpServletResponse response)
-		throws Exception {
+			User user;
 
-		String ipAddress = request.getRemoteAddr();
+			user = PortalUtil.getUser(request);
 
-		User user = PortalUtil.getUser(request);
-
-		EventMonitorLocalServiceUtil.addEventMonitor(
-			user.getUserId(), user.getFullName(), user.getCompanyId(),
-			EventTypeConstants.LOGIN, ipAddress);
+			EventMonitorLocalServiceUtil.addEventMonitor(
+				user.getUserId(), user.getScreenName(), user.getCompanyId(),
+				EventTypeConstants.LOGIN, ipAddress);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 	}
 
 }

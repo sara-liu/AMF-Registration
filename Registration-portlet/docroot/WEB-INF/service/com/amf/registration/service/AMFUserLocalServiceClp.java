@@ -19,29 +19,28 @@ import com.liferay.portal.service.InvokableLocalService;
 /**
  * @author Sara Liu
  */
-public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
-	public EventMonitorLocalServiceClp(
-		InvokableLocalService invokableLocalService) {
+public class AMFUserLocalServiceClp implements AMFUserLocalService {
+	public AMFUserLocalServiceClp(InvokableLocalService invokableLocalService) {
 		_invokableLocalService = invokableLocalService;
 
-		_methodName0 = "addEventMonitor";
+		_methodName0 = "addAMFUser";
 
 		_methodParameterTypes0 = new String[] {
-				"com.amf.registration.model.EventMonitor"
+				"com.amf.registration.model.AMFUser"
 			};
 
-		_methodName1 = "createEventMonitor";
+		_methodName1 = "createAMFUser";
 
 		_methodParameterTypes1 = new String[] { "long" };
 
-		_methodName2 = "deleteEventMonitor";
+		_methodName2 = "deleteAMFUser";
 
 		_methodParameterTypes2 = new String[] { "long" };
 
-		_methodName3 = "deleteEventMonitor";
+		_methodName3 = "deleteAMFUser";
 
 		_methodParameterTypes3 = new String[] {
-				"com.amf.registration.model.EventMonitor"
+				"com.amf.registration.model.AMFUser"
 			};
 
 		_methodName4 = "dynamicQuery";
@@ -73,11 +72,11 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 				"com.liferay.portal.kernel.dao.orm.DynamicQuery"
 			};
 
-		_methodName9 = "fetchEventMonitor";
+		_methodName9 = "fetchAMFUser";
 
 		_methodParameterTypes9 = new String[] { "long" };
 
-		_methodName10 = "getEventMonitor";
+		_methodName10 = "getAMFUser";
 
 		_methodParameterTypes10 = new String[] { "long" };
 
@@ -85,24 +84,24 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 
 		_methodParameterTypes11 = new String[] { "java.io.Serializable" };
 
-		_methodName12 = "getEventMonitors";
+		_methodName12 = "getAMFUsers";
 
 		_methodParameterTypes12 = new String[] { "int", "int" };
 
-		_methodName13 = "getEventMonitorsCount";
+		_methodName13 = "getAMFUsersCount";
 
 		_methodParameterTypes13 = new String[] {  };
 
-		_methodName14 = "updateEventMonitor";
+		_methodName14 = "updateAMFUser";
 
 		_methodParameterTypes14 = new String[] {
-				"com.amf.registration.model.EventMonitor"
+				"com.amf.registration.model.AMFUser"
 			};
 
-		_methodName15 = "updateEventMonitor";
+		_methodName15 = "updateAMFUser";
 
 		_methodParameterTypes15 = new String[] {
-				"com.amf.registration.model.EventMonitor", "boolean"
+				"com.amf.registration.model.AMFUser", "boolean"
 			};
 
 		_methodName16 = "getBeanIdentifier";
@@ -113,57 +112,24 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 
 		_methodParameterTypes17 = new String[] { "java.lang.String" };
 
-		_methodName19 = "addEventMonitor";
+		_methodName19 = "countByZip";
 
-		_methodParameterTypes19 = new String[] {
-				"long", "java.lang.String", "long", "java.lang.String",
-				"java.lang.String"
-			};
+		_methodParameterTypes19 = new String[] { "java.lang.String" };
 
-		_methodName20 = "getEventMonitor";
+		_methodName20 = "findByZip";
 
-		_methodParameterTypes20 = new String[] { "int", "int" };
-
-		_methodName21 = "getEventMonitor";
-
-		_methodParameterTypes21 = new String[] { "long", "int", "int" };
-
-		_methodName22 = "getEventMonitor";
-
-		_methodParameterTypes22 = new String[] {
-				"long", "java.lang.String", "int", "int"
-			};
-
-		_methodName23 = "getEventMonitor";
-
-		_methodParameterTypes23 = new String[] { "java.lang.String", "int", "int" };
-
-		_methodName24 = "getEventMonitorCount";
-
-		_methodParameterTypes24 = new String[] {  };
-
-		_methodName25 = "getEventMonitorCount";
-
-		_methodParameterTypes25 = new String[] { "long" };
-
-		_methodName26 = "getEventMonitorCount";
-
-		_methodParameterTypes26 = new String[] { "long", "java.lang.String" };
-
-		_methodName27 = "getEventMonitorCount";
-
-		_methodParameterTypes27 = new String[] { "java.lang.String" };
+		_methodParameterTypes20 = new String[] { "java.lang.String", "int", "int" };
 	}
 
-	public com.amf.registration.model.EventMonitor addEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor)
+	public com.amf.registration.model.AMFUser addAMFUser(
+		com.amf.registration.model.AMFUser amfUser)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName0,
 					_methodParameterTypes0,
-					new Object[] { ClpSerializer.translateInput(eventMonitor) });
+					new Object[] { ClpSerializer.translateInput(amfUser) });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -181,16 +147,15 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (com.amf.registration.model.EventMonitor)ClpSerializer.translateOutput(returnObj);
+		return (com.amf.registration.model.AMFUser)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public com.amf.registration.model.EventMonitor createEventMonitor(
-		long eventMonitorId) {
+	public com.amf.registration.model.AMFUser createAMFUser(long userId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { eventMonitorId });
+					_methodParameterTypes1, new Object[] { userId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -204,18 +169,17 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (com.amf.registration.model.EventMonitor)ClpSerializer.translateOutput(returnObj);
+		return (com.amf.registration.model.AMFUser)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public com.amf.registration.model.EventMonitor deleteEventMonitor(
-		long eventMonitorId)
+	public com.amf.registration.model.AMFUser deleteAMFUser(long userId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { eventMonitorId });
+					_methodParameterTypes2, new Object[] { userId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -237,18 +201,18 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (com.amf.registration.model.EventMonitor)ClpSerializer.translateOutput(returnObj);
+		return (com.amf.registration.model.AMFUser)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public com.amf.registration.model.EventMonitor deleteEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor)
+	public com.amf.registration.model.AMFUser deleteAMFUser(
+		com.amf.registration.model.AMFUser amfUser)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName3,
 					_methodParameterTypes3,
-					new Object[] { ClpSerializer.translateInput(eventMonitor) });
+					new Object[] { ClpSerializer.translateInput(amfUser) });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -266,7 +230,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (com.amf.registration.model.EventMonitor)ClpSerializer.translateOutput(returnObj);
+		return (com.amf.registration.model.AMFUser)ClpSerializer.translateOutput(returnObj);
 	}
 
 	public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
@@ -426,14 +390,13 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return ((Long)returnObj).longValue();
 	}
 
-	public com.amf.registration.model.EventMonitor fetchEventMonitor(
-		long eventMonitorId)
+	public com.amf.registration.model.AMFUser fetchAMFUser(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName9,
-					_methodParameterTypes9, new Object[] { eventMonitorId });
+					_methodParameterTypes9, new Object[] { userId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -451,18 +414,17 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (com.amf.registration.model.EventMonitor)ClpSerializer.translateOutput(returnObj);
+		return (com.amf.registration.model.AMFUser)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public com.amf.registration.model.EventMonitor getEventMonitor(
-		long eventMonitorId)
+	public com.amf.registration.model.AMFUser getAMFUser(long userId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { eventMonitorId });
+					_methodParameterTypes10, new Object[] { userId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -484,7 +446,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (com.amf.registration.model.EventMonitor)ClpSerializer.translateOutput(returnObj);
+		return (com.amf.registration.model.AMFUser)ClpSerializer.translateOutput(returnObj);
 	}
 
 	public com.liferay.portal.model.PersistedModel getPersistedModel(
@@ -521,7 +483,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return (com.liferay.portal.model.PersistedModel)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitors(
+	public java.util.List<com.amf.registration.model.AMFUser> getAMFUsers(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -546,10 +508,10 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (java.util.List<com.amf.registration.model.EventMonitor>)ClpSerializer.translateOutput(returnObj);
+		return (java.util.List<com.amf.registration.model.AMFUser>)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public int getEventMonitorsCount()
+	public int getAMFUsersCount()
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -576,15 +538,15 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return ((Integer)returnObj).intValue();
 	}
 
-	public com.amf.registration.model.EventMonitor updateEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor)
+	public com.amf.registration.model.AMFUser updateAMFUser(
+		com.amf.registration.model.AMFUser amfUser)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName14,
 					_methodParameterTypes14,
-					new Object[] { ClpSerializer.translateInput(eventMonitor) });
+					new Object[] { ClpSerializer.translateInput(amfUser) });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -602,22 +564,18 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (com.amf.registration.model.EventMonitor)ClpSerializer.translateOutput(returnObj);
+		return (com.amf.registration.model.AMFUser)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public com.amf.registration.model.EventMonitor updateEventMonitor(
-		com.amf.registration.model.EventMonitor eventMonitor, boolean merge)
+	public com.amf.registration.model.AMFUser updateAMFUser(
+		com.amf.registration.model.AMFUser amfUser, boolean merge)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName15,
 					_methodParameterTypes15,
-					new Object[] {
-						ClpSerializer.translateInput(eventMonitor),
-						
-					merge
-					});
+					new Object[] { ClpSerializer.translateInput(amfUser), merge });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -635,7 +593,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (com.amf.registration.model.EventMonitor)ClpSerializer.translateOutput(returnObj);
+		return (com.amf.registration.model.AMFUser)ClpSerializer.translateOutput(returnObj);
 	}
 
 	public java.lang.String getBeanIdentifier() {
@@ -685,29 +643,22 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		throw new UnsupportedOperationException();
 	}
 
-	public com.amf.registration.model.EventMonitor addEventMonitor(
-		long userId, java.lang.String userName, long companyId,
-		java.lang.String eventType, java.lang.String ipAddress)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public int countByZip(java.lang.String zip)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName19,
 					_methodParameterTypes19,
-					new Object[] {
-						userId,
-						
-					ClpSerializer.translateInput(userName),
-						
-					companyId,
-						
-					ClpSerializer.translateInput(eventType),
-						
-					ClpSerializer.translateInput(ipAddress)
-					});
+					new Object[] { ClpSerializer.translateInput(zip) });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
 
 			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
 				throw (com.liferay.portal.kernel.exception.SystemException)t;
@@ -722,20 +673,26 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (com.amf.registration.model.EventMonitor)ClpSerializer.translateOutput(returnObj);
+		return ((Integer)returnObj).intValue();
 	}
 
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
+	public java.util.List<com.liferay.portal.model.User> findByZip(
+		java.lang.String zip, int start, int end)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName20,
-					_methodParameterTypes20, new Object[] { start, end });
+					_methodParameterTypes20,
+					new Object[] { ClpSerializer.translateInput(zip), start, end });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
 
 			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
 				throw (com.liferay.portal.kernel.exception.SystemException)t;
@@ -750,218 +707,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			}
 		}
 
-		return (java.util.List<com.amf.registration.model.EventMonitor>)ClpSerializer.translateOutput(returnObj);
-	}
-
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		long userId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName21,
-					_methodParameterTypes21, new Object[] { userId, start, end });
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return (java.util.List<com.amf.registration.model.EventMonitor>)ClpSerializer.translateOutput(returnObj);
-	}
-
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		long userId, java.lang.String eventType, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName22,
-					_methodParameterTypes22,
-					new Object[] {
-						userId,
-						
-					ClpSerializer.translateInput(eventType),
-						
-					start,
-						
-					end
-					});
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return (java.util.List<com.amf.registration.model.EventMonitor>)ClpSerializer.translateOutput(returnObj);
-	}
-
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		java.lang.String eventType, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName23,
-					_methodParameterTypes23,
-					new Object[] {
-						ClpSerializer.translateInput(eventType),
-						
-					start,
-						
-					end
-					});
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return (java.util.List<com.amf.registration.model.EventMonitor>)ClpSerializer.translateOutput(returnObj);
-	}
-
-	public int getEventMonitorCount()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName24,
-					_methodParameterTypes24, new Object[] {  });
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return ((Integer)returnObj).intValue();
-	}
-
-	public int getEventMonitorCount(long userId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName25,
-					_methodParameterTypes25, new Object[] { userId });
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return ((Integer)returnObj).intValue();
-	}
-
-	public int getEventMonitorCount(long userId, java.lang.String eventType)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName26,
-					_methodParameterTypes26,
-					new Object[] { userId, ClpSerializer.translateInput(
-							eventType) });
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return ((Integer)returnObj).intValue();
-	}
-
-	public int getEventMonitorCount(java.lang.String eventType)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName27,
-					_methodParameterTypes27,
-					new Object[] { ClpSerializer.translateInput(eventType) });
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return ((Integer)returnObj).intValue();
+		return (java.util.List<com.liferay.portal.model.User>)ClpSerializer.translateOutput(returnObj);
 	}
 
 	private InvokableLocalService _invokableLocalService;
@@ -1005,18 +751,4 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 	private String[] _methodParameterTypes19;
 	private String _methodName20;
 	private String[] _methodParameterTypes20;
-	private String _methodName21;
-	private String[] _methodParameterTypes21;
-	private String _methodName22;
-	private String[] _methodParameterTypes22;
-	private String _methodName23;
-	private String[] _methodParameterTypes23;
-	private String _methodName24;
-	private String[] _methodParameterTypes24;
-	private String _methodName25;
-	private String[] _methodParameterTypes25;
-	private String _methodName26;
-	private String[] _methodParameterTypes26;
-	private String _methodName27;
-	private String[] _methodParameterTypes27;
 }

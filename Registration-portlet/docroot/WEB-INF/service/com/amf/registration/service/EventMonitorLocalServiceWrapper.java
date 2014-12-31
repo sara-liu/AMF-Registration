@@ -283,12 +283,6 @@ public class EventMonitorLocalServiceWrapper implements EventMonitorLocalService
 	}
 
 	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
-		java.lang.String eventType, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _eventMonitorLocalService.getEventMonitor(eventType, start, end);
-	}
-
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
 		long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return _eventMonitorLocalService.getEventMonitor(userId, start, end);
@@ -301,14 +295,15 @@ public class EventMonitorLocalServiceWrapper implements EventMonitorLocalService
 			start, end);
 	}
 
+	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+		java.lang.String eventType, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _eventMonitorLocalService.getEventMonitor(eventType, start, end);
+	}
+
 	public int getEventMonitorCount()
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return _eventMonitorLocalService.getEventMonitorCount();
-	}
-
-	public int getEventMonitorCount(java.lang.String eventType)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _eventMonitorLocalService.getEventMonitorCount(eventType);
 	}
 
 	public int getEventMonitorCount(long userId)
@@ -319,6 +314,11 @@ public class EventMonitorLocalServiceWrapper implements EventMonitorLocalService
 	public int getEventMonitorCount(long userId, java.lang.String eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return _eventMonitorLocalService.getEventMonitorCount(userId, eventType);
+	}
+
+	public int getEventMonitorCount(java.lang.String eventType)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _eventMonitorLocalService.getEventMonitorCount(eventType);
 	}
 
 	/**

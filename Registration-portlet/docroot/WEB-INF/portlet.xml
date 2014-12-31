@@ -10,6 +10,10 @@
 			<value>true</value>
 		</init-param>
 		<init-param>
+			<name>template-path</name>
+			<value>/html/registration/</value>
+		</init-param>
+		<init-param>
 			<name>view-jsp</name>
 			<value>/html/registration/view.jsp</value>
 		</init-param>
@@ -41,6 +45,10 @@
 		<portlet-name>amf-event-monitor-portlet</portlet-name>
 		<display-name>AMF Event Monitor Portlet</display-name>
 		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+		<init-param>
+			<name>template-path</name>
+			<value>/html/eventmonitor/</value>
+		</init-param>
 		<init-param>
 			<name>view-jsp</name>
 			<value>/html/eventmonitor/view.jsp</value>
@@ -78,6 +86,10 @@
 			<value>true</value>
 		</init-param>
 		<init-param>
+			<name>template-path</name>
+			<value>/html/search/</value>
+		</init-param>
+		<init-param>
 			<name>view-jsp</name>
 			<value>/html/search/view.jsp</value>
 		</init-param>
@@ -112,6 +124,10 @@
 		<portlet-name>amf-search-results-portlet</portlet-name>
 		<display-name>AMF Search Results Portlet</display-name>
 		<portlet-class>com.amf.registration.portlet.SearchResultsPortlet</portlet-class>
+		<init-param>
+			<name>template-path</name>
+			<value>/html/search_results/</value>
+		</init-param>
 		<init-param>
 			<name>view-jsp</name>
 			<value>/html/search_results/view.jsp</value>

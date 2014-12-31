@@ -14,26 +14,26 @@
 
 package com.amf.registration;
 
-import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.NoSuchModelException;
 
 /**
  * @author Sara Liu
  */
-public class RegistrationAddressCityException extends PortalException {
+public class NoSuchAMFUserException extends NoSuchModelException {
 
-	public RegistrationAddressCityException() {
+	public NoSuchAMFUserException() {
 		super();
 	}
 
-	public RegistrationAddressCityException(String msg) {
+	public NoSuchAMFUserException(String msg) {
 		super(msg);
 	}
 
-	public RegistrationAddressCityException(String msg, Throwable cause) {
+	public NoSuchAMFUserException(String msg, Throwable cause) {
 		super(msg, cause);
 	}
 
-	public RegistrationAddressCityException(Throwable cause) {
+	public NoSuchAMFUserException(Throwable cause) {
 		super(cause);
 	}
 

@@ -1,18 +1,20 @@
 .amf-search-results-portlet {
-	.results-grid {
-		border-style: none;
-	}
+	.result-data {
+		.results-grid {
+			border-style: none;
+		}
 
-	.results-header th {
-		display: none;
-	}
+		.results-header th {
+			display: none;
+		}
 
-	.results-row td {
-		background: #EEF0F2;
-		border-style: none;
-	}
+		.results-row td {
+			background: #EEF0F2;
+			border-style: none;
+		}
 
-	.results-row.alt td {
-		background: #EEF0F2;
+		.results-row.alt td {
+			background: #EEF0F2;
+		}
 	}
 }

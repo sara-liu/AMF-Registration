@@ -1628,6 +1628,8 @@ public class AddressPersistenceImpl extends BasePersistenceImpl<Address>
 
 	@BeanReference(type = AddressPersistence.class)
 	protected AddressPersistence addressPersistence;
+	@BeanReference(type = AMFUserPersistence.class)
+	protected AMFUserPersistence amfUserPersistence;
 	@BeanReference(type = EventMonitorPersistence.class)
 	protected EventMonitorPersistence eventMonitorPersistence;
 	@BeanReference(type = ResourcePersistence.class)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <custom-sql>
-	<sql id="com.amf.registration.service.persistence.AddressFinder.countByZip">
+	<sql id="com.amf.registration.service.persistence.AMFUserFinder.countByZip">
 		<![CDATA[
 			SELECT
 				COUNT(*) AS COUNT_VALUE
@@ -10,15 +10,15 @@
 			WHERE
 				(User_.userId IN(
 					SELECT
-						Registration_Address.userId
+						address.userId
 					FROM
-						Registration_Address
+						address
 					WHERE
-						Registration_Address.zip = ?
+						address.zip = ?
 				))
 		]]>
 	</sql>
-	<sql id="com.amf.registration.service.persistence.AddressFinder.findByZip">
+	<sql id="com.amf.registration.service.persistence.AMFUserFinder.findByZip">
 		<![CDATA[
 			SELECT
 				User_.userId as userId
@@ -27,11 +27,11 @@
 			WHERE
 				(User_.userId IN(
 					SELECT
-						Registration_Address.userId
+						address.userId
 					FROM
-						Registration_Address
+						address
 					WHERE
-						Registration_Address.zip = ?
+						address.zip = ?
 				))
 		]]>
 	</sql>

@@ -14,7 +14,7 @@
 
 package com.amf.registration.service;
 
-import com.amf.registration.model.AddressClp;
+import com.amf.registration.model.AMFUserClp;
 import com.amf.registration.model.EventMonitorClp;
 
 import com.liferay.portal.kernel.exception.PortalException;
@@ -103,8 +103,8 @@ public class ClpSerializer {
 
 		String oldModelClassName = oldModelClass.getName();
 
-		if (oldModelClassName.equals(AddressClp.class.getName())) {
-			return translateInputAddress(oldModel);
+		if (oldModelClassName.equals(AMFUserClp.class.getName())) {
+			return translateInputAMFUser(oldModel);
 		}
 
 		if (oldModelClassName.equals(EventMonitorClp.class.getName())) {
@@ -126,10 +126,10 @@ public class ClpSerializer {
 		return newList;
 	}
 
-	public static Object translateInputAddress(BaseModel<?> oldModel) {
-		AddressClp oldClpModel = (AddressClp)oldModel;
+	public static Object translateInputAMFUser(BaseModel<?> oldModel) {
+		AMFUserClp oldClpModel = (AMFUserClp)oldModel;
 
-		BaseModel<?> newModel = oldClpModel.getAddressRemoteModel();
+		BaseModel<?> newModel = oldClpModel.getAMFUserRemoteModel();
 
 		newModel.setModelAttributes(oldClpModel.getModelAttributes());
 
@@ -164,8 +164,8 @@ public class ClpSerializer {
 		String oldModelClassName = oldModelClass.getName();
 
 		if (oldModelClassName.equals(
-					"com.amf.registration.model.impl.AddressImpl")) {
-			return translateOutputAddress(oldModel);
+					"com.amf.registration.model.impl.AMFUserImpl")) {
+			return translateOutputAMFUser(oldModel);
 		}
 
 		if (oldModelClassName.equals(
@@ -253,28 +253,8 @@ public class ClpSerializer {
 			return new SystemException();
 		}
 
-		if (className.equals(
-					"com.amf.registration.RegistrationAddressException")) {
-			return new com.amf.registration.RegistrationAddressException();
-		}
-
-		if (className.equals(
-					"com.amf.registration.RegistrationAddressCityException")) {
-			return new com.amf.registration.RegistrationAddressCityException();
-		}
-
-		if (className.equals(
-					"com.amf.registration.RegistrationAddressStateException")) {
-			return new com.amf.registration.RegistrationAddressStateException();
-		}
-
-		if (className.equals(
-					"com.amf.registration.RegistrationAddressZipException")) {
-			return new com.amf.registration.RegistrationAddressZipException();
-		}
-
-		if (className.equals("com.amf.registration.NoSuchAddressException")) {
-			return new com.amf.registration.NoSuchAddressException();
+		if (className.equals("com.amf.registration.NoSuchAMFUserException")) {
+			return new com.amf.registration.NoSuchAMFUserException();
 		}
 
 		if (className.equals("com.amf.registration.NoSuchEventMonitorException")) {
@@ -284,12 +264,12 @@ public class ClpSerializer {
 		return throwable;
 	}
 
-	public static Object translateOutputAddress(BaseModel<?> oldModel) {
-		AddressClp newModel = new AddressClp();
+	public static Object translateOutputAMFUser(BaseModel<?> oldModel) {
+		AMFUserClp newModel = new AMFUserClp();
 
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
-		newModel.setAddressRemoteModel(oldModel);
+		newModel.setAMFUserRemoteModel(oldModel);
 
 		return newModel;
 	}

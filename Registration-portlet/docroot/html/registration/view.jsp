@@ -18,9 +18,9 @@
 
 <c:choose>
 	<c:when test="<%= themeDisplay.isSignedIn() %>">
-		<liferay-ui:message key="you-are-already-logined-in" />
+		<liferay-ui:message key="you-are-already-logged-in" />
 	</c:when>
 	<c:otherwise>
-		<%@ include file="/html/registration/create_account.jsp" %>
+		<%@ include file="/html/registration/create_account.jspf" %>
 	</c:otherwise>
 </c:choose>

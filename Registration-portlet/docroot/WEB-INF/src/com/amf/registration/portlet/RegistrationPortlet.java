@@ -14,16 +14,14 @@
 
 package com.amf.registration.portlet;
 
-import com.amf.registration.RegistrationAddressCityException;
-import com.amf.registration.RegistrationAddressException;
-import com.amf.registration.RegistrationAddressStateException;
-import com.amf.registration.RegistrationAddressZipException;
-import com.amf.registration.service.AddressLocalServiceUtil;
 import com.amf.registration.service.EventMonitorLocalServiceUtil;
 import com.amf.registration.util.CountryConstants;
 import com.amf.registration.util.EventTypeConstants;
 import com.amf.registration.util.IpConstants;
 
+import com.liferay.portal.AddressCityException;
+import com.liferay.portal.AddressStreetException;
+import com.liferay.portal.AddressZipException;
 import com.liferay.portal.ContactBirthdayException;
 import com.liferay.portal.ContactFirstNameException;
 import com.liferay.portal.ContactLastNameException;
@@ -34,21 +32,22 @@ import com.liferay.portal.TermsOfUseException;
 import com.liferay.portal.UserEmailAddressException;
 import com.liferay.portal.UserPasswordException;
 import com.liferay.portal.UserReminderQueryException;
+import com.liferay.portal.UserScreenNameException;
 import com.liferay.portal.kernel.util.CalendarUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.Contact;
 import com.liferay.portal.model.Country;
 import com.liferay.portal.model.ListType;
 import com.liferay.portal.model.ListTypeConstants;
-import com.liferay.portal.model.Region;
 import com.liferay.portal.model.User;
+import com.liferay.portal.service.AddressLocalServiceUtil;
 import com.liferay.portal.service.CountryServiceUtil;
 import com.liferay.portal.service.ListTypeServiceUtil;
 import com.liferay.portal.service.PhoneLocalServiceUtil;
-import com.liferay.portal.service.RegionServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceContextFactory;
 import com.liferay.portal.service.UserLocalServiceUtil;
@@ -75,11 +74,11 @@ public class RegistrationPortlet extends MVCPortlet {
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
-		String screenName = ParamUtil.getString(actionRequest, "username");
-		String firstName = ParamUtil.getString(actionRequest, "first_Name");
-		String lastName = ParamUtil.getString(actionRequest, "last_Name");
+		String username = ParamUtil.getString(actionRequest, "username");
+		String firstName = ParamUtil.getString(actionRequest, "first_name");
+		String lastName = ParamUtil.getString(actionRequest, "last_name");
 		String emailAddress = ParamUtil.getString(
-			actionRequest, "email_Address");
+			actionRequest, "email_address");
 		boolean male = ParamUtil.getBoolean(actionRequest, "male", true);
 		int birthdayMonth = ParamUtil.getInteger(
 			actionRequest, "birthdayMonth");
@@ -94,36 +93,52 @@ public class RegistrationPortlet extends MVCPortlet {
 		String address = ParamUtil.getString(actionRequest, "address");
 		String address2 = ParamUtil.getString(actionRequest, "address2");
 		String city = ParamUtil.getString(actionRequest, "city");
-		String state = ParamUtil.getString(actionRequest, "state");
+		long stateId = ParamUtil.getLong(actionRequest, "state");
 		String zip = ParamUtil.getString(actionRequest, "zip");
 
-		String sercurityQuestion = ParamUtil.getString(
+		String securityQuestion = ParamUtil.getString(
 			actionRequest, "security_question");
-		String sercurityAnswer = ParamUtil.getString(
+		String securityAnswer = ParamUtil.getString(
 			actionRequest, "security_answer");
 
 		boolean acceptedTou = ParamUtil.getBoolean(
-			actionRequest, "accepted_Tou");
+			actionRequest, "accepted_tou");
+
+		Country country = CountryServiceUtil.getCountryByName(
+			CountryConstants.UNITED_STATES);
+
+		List<ListType> addressTypes = ListTypeServiceUtil.getListTypes(
+				ListTypeConstants.CONTACT_ADDRESS);
+
+		int typeId = 0;
+
+		for (ListType addressType : addressTypes) {
+			if (addressType.getName().equals("personal")) {
+				typeId = addressType.getListTypeId();
+
+				break;
+			}
+		}
 
 		ServiceContext serviceContext = ServiceContextFactory.getInstance(
 			User.class.getName(), actionRequest);
 
 		validate(
-			password1, password2, emailAddress, firstName, lastName,
-			birthdayMonth, birthdayDay, birthdayYear, mobilePhone,
-			homePhone, address, address2, city, state, zip,
-			sercurityAnswer, acceptedTou);
+			firstName, lastName, emailAddress, username, birthdayMonth,
+			birthdayDay, birthdayYear, password1, password2, homePhone,
+			mobilePhone, address, address2, city, zip, securityQuestion,
+			securityAnswer, acceptedTou);
 
 		User user = UserLocalServiceUtil.addUser(
 			0, themeDisplay.getCompanyId(), false, password1, password2, false,
-			screenName, emailAddress, 0, null, LocaleUtil.getDefault(),
-			firstName, null, lastName, 0, 0, male, birthdayMonth, birthdayDay,
+			username, emailAddress, 0, null, LocaleUtil.getDefault(), firstName,
+			null, lastName, 0, 0, male, birthdayMonth, birthdayDay,
 			birthdayYear, null, null, null, null, null, false, serviceContext);
 
 		UserLocalServiceUtil.updatePasswordReset(user.getUserId(), false);
 
 		UserLocalServiceUtil.updateReminderQuery(
-			user.getUserId(), sercurityQuestion, sercurityAnswer);
+			user.getUserId(), securityQuestion, securityAnswer);
 
 		UserLocalServiceUtil.updateAgreedToTermsOfUse(
 			user.getUserId(), acceptedTou);
@@ -132,10 +147,16 @@ public class RegistrationPortlet extends MVCPortlet {
 			ListTypeConstants.CONTACT_PHONE);
 
 		for (ListType phoneType : phoneTypes) {
-			if ((phoneType.getName().equals("personal") &&
-				 Validator.isNotNull(homePhone)) ||
-				(phoneType.getName().equals("mobile-phone") &&
-				 Validator.isNotNull(mobilePhone))) {
+			if (phoneType.getName().equals("personal") &&
+				Validator.isNotNull(homePhone)) {
+
+				PhoneLocalServiceUtil.addPhone(
+					user.getUserId(), Contact.class.getName(),
+					user.getContactId(), homePhone, null,
+					phoneType.getListTypeId(), false);
+			}
+			else if (phoneType.getName().equals("mobile-phone") &&
+					 Validator.isNotNull(mobilePhone)) {
 
 				PhoneLocalServiceUtil.addPhone(
 					user.getUserId(), Contact.class.getName(),
@@ -145,29 +166,30 @@ public class RegistrationPortlet extends MVCPortlet {
 		}
 
 		AddressLocalServiceUtil.addAddress(
-			user.getUserId(), address, address2, city, state, zip,
-			serviceContext);
+			user.getUserId(), Contact.class.getName(), user.getContactId(),
+			address, address2, StringPool.BLANK, city, zip, stateId,
+			country.getCountryId(), typeId, false, true);
 
 		EventMonitorLocalServiceUtil.addEventMonitor(
-			user.getUserId(), user.getFullName(), user.getCompanyId(),
+			user.getUserId(), user.getScreenName(), user.getCompanyId(),
 			EventTypeConstants.REGISTRATION, IpConstants.DEFAULT);
 	}
 
 	protected boolean isSessionErrorException(Throwable cause) {
-		if (cause instanceof ContactBirthdayException ||
+		if (cause instanceof AddressCityException ||
+			cause instanceof AddressStreetException ||
+			cause instanceof AddressZipException ||
+			cause instanceof ContactBirthdayException ||
 			cause instanceof ContactFirstNameException ||
 			cause instanceof ContactLastNameException ||
 			cause instanceof DuplicateUserEmailAddressException ||
 			cause instanceof DuplicateUserScreenNameException ||
 			cause instanceof PhoneNumberException ||
-			cause instanceof RegistrationAddressCityException ||
-			cause instanceof RegistrationAddressException ||
-			cause instanceof RegistrationAddressStateException ||
-			cause instanceof RegistrationAddressZipException ||
 			cause instanceof TermsOfUseException ||
 			cause instanceof UserEmailAddressException ||
 			cause instanceof UserPasswordException ||
-			cause instanceof UserReminderQueryException) {
+			cause instanceof UserReminderQueryException ||
+			cause instanceof UserScreenNameException) {
 
 			return true;
 		}
@@ -176,12 +198,12 @@ public class RegistrationPortlet extends MVCPortlet {
 	}
 
 	protected void validate(
-			String password1, String password2, String emailAddress,
-			String firstName, String lastName, int birthdayMonth,
-			int birthdayDay, int birthdayYear, String mobilePhoneNumber,
-			String homePhoneNumber, String address, String address2,
-			String city, String state, String zip, String sercurityAnswer,
-			boolean acceptedTou)
+			String firstName, String lastName, String emailAddress,
+			String username, int birthdayMonth, int birthdayDay,
+			int birthdayYear, String password1, String password2,
+			String homePhone, String mobilePhone, String address,
+			String address2, String city, String zip, String securityQuestion,
+			String securityAnswer, boolean acceptedTou)
 		throws Exception {
 
 		if (!Validator.isAlphanumericName(firstName) ||
@@ -196,10 +218,14 @@ public class RegistrationPortlet extends MVCPortlet {
 			throw new ContactLastNameException();
 		}
 
-		if (!Validator.isEmailAddress(emailAddress) ||
-			(emailAddress.length() > 255)) {
-
+		if (Validator.isNull(emailAddress) || (emailAddress.length() > 75)) {
 			throw new UserEmailAddressException();
+		}
+
+		if ((username.length() < 4) || (username.length() > 16) ||
+			!Validator.isAlphanumericName(username)) {
+
+			throw new UserScreenNameException();
 		}
 
 		Date birthday = PortalUtil.getDate(
@@ -220,57 +246,49 @@ public class RegistrationPortlet extends MVCPortlet {
 
 		validatePassword(password1, password2);
 
-		if ((Validator.isNotNull(mobilePhoneNumber) &&
-			 (mobilePhoneNumber.length() != 10)) ||
-			(Validator.isNotNull(mobilePhoneNumber) &&
-			 (homePhoneNumber.length() != 10))) {
-
-			throw new PhoneNumberException();
-		}
-
-		if (!Validator.isAlphanumericName(address) ||
-			(address.length() > 255) ||
-			(Validator.isNotNull(address2) && 
-			 (!Validator.isAlphanumericName(address2) ||
-			 (address2.length() > 255)))) {
-
-			throw new RegistrationAddressException();
-		}
-
-		if (!Validator.isAlphanumericName(city) || (city.length() > 255)) {
-			throw new RegistrationAddressCityException();
-		}
-
-		if (!Validator.isDigit(zip) || (zip.length() != 5)) {
-			throw new RegistrationAddressZipException();
-		}
-
-		Country country = CountryServiceUtil.getCountryByName(
-			CountryConstants.UNITED_STATES);
-
-		List<Region> USRegions = RegionServiceUtil.getRegions(
-			country.getCountryId());
-
-		boolean isUSRegion = false;
-
-		for (Region USRegion : USRegions) {
-			if (state.equals(USRegion.getName())) {
-				isUSRegion = true;
+		if (Validator.isNotNull(homePhone)) {
+			if (!Validator.isDigit(homePhone) || (homePhone.length() != 10)) {
+				throw new PhoneNumberException();
 			}
 		}
 
-		if (!isUSRegion) {
-			throw new RegistrationAddressStateException();
+		if (Validator.isNotNull(mobilePhone)) {
+			if (!Validator.isDigit(mobilePhone) ||
+				(mobilePhone.length() != 10)) {
+
+				throw new PhoneNumberException();
+			}
+		}
+
+		if (!Validator.isAlphanumericName(address) || (address.length() > 75)) {
+			throw new AddressStreetException();
+		}
+
+		if (Validator.isNotNull(address2) &&
+			(!Validator.isAlphanumericName(address2) ||
+			 (address2.length() > 75))) {
+
+			throw new AddressStreetException();
+		}
+
+		if (!Validator.isAlphanumericName(city) || (city.length() > 75)) {
+			throw new AddressCityException();
+		}
+
+		if (!Validator.isDigit(zip) || (zip.length() != 5)) {
+			throw new AddressZipException();
+		}
+
+		if (Validator.isNull(securityQuestion) ||
+			Validator.isNull(securityAnswer) ||
+			!Validator.isAlphanumericName(securityAnswer) ||
+			(securityAnswer.length() > 75)) {
+
+			throw new UserReminderQueryException();
 		}
 
 		if (acceptedTou == false) {
 			throw new TermsOfUseException();
-		}
-
-		if (!Validator.isAlphanumericName(sercurityAnswer) ||
-			(sercurityAnswer.length() > 255)) {
-
-			throw new UserReminderQueryException();
 		}
 	}
 

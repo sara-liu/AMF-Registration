@@ -17,29 +17,28 @@
 <portlet:actionURL name="registrationUser" var="registrationURL" />
 
 <aui:form action="<%= registrationURL %>" method="post" name="fm">
-
-	<liferay-ui:error exception="<%= ContactBirthdayException.class %>" message="only-over-13-years-old-can-regist" />
+	<liferay-ui:error exception="<%= AddressCityException.class %>" message=" please-enter-a-valid-city" />
+	<liferay-ui:error exception="<%= AddressStreetException.class %>" message="please-enter-a-valid-address" />
+	<liferay-ui:error exception="<%= AddressZipException.class %>" message="please-enter-a-valid-zip" />
+	<liferay-ui:error exception="<%= ContactBirthdayException.class %>" message="only-over-13-years-old-can-register" />
 	<liferay-ui:error exception="<%= ContactFirstNameException.class %>" message="please-enter-a-valid-first-name" />
 	<liferay-ui:error exception="<%= ContactLastNameException.class %>" message="please-enter-a-valid-last-name" />
 	<liferay-ui:error exception="<%= DuplicateUserEmailAddressException.class %>" message="the-email-address-you-requested-is-already-taken" />
 	<liferay-ui:error exception="<%= DuplicateUserScreenNameException.class %>" message="the-user-name-you-requested-is-already-taken" />
 	<liferay-ui:error exception="<%= PhoneNumberException.class %>" message="please-enter-a-valid-phone-number" />
-	<liferay-ui:error exception="<%= RegistrationAddressCityException.class %>" message=" please-enter-a-valid-city" />
-	<liferay-ui:error exception="<%= RegistrationAddressException.class %>" message="please-enter-a-valid-address" />
-	<liferay-ui:error exception="<%= RegistrationAddressStateException.class %>" message="please-enter-a-valid-state-name" />
-	<liferay-ui:error exception="<%= RegistrationAddressZipException.class %>" message="please-enter-a-valid-zip" />
 	<liferay-ui:error exception="<%= TermsOfUseException.class %>" message="you-must-agree-to-the-terms-of-use" />
 	<liferay-ui:error exception="<%= UserEmailAddressException.class %>" message="please-enter-a-valid-email-address" />
 	<liferay-ui:error exception="<%= UserPasswordException.class %>" message="please-enter-a-valid-password" />
 	<liferay-ui:error exception="<%= UserReminderQueryException.class %>" message="please-enter-a-valid-security-answer" />
+	<liferay-ui:error exception="<%= UserScreenNameException.class %>" message="please-enter-a-valid-username" />
 
 	<aui:fieldset label="basic-info">
 		<aui:fieldset column="<%= true %>" cssClass="aui-w50">
-			<aui:input label="first-name" name="first_Name" required="true" />
+			<aui:input label="first-name" name="first_name" required="true" />
 
-			<aui:input label="last-name" name="last_Name" required="true" />
+			<aui:input label="last-name" name="last_name" required="true" />
 
-			<aui:input label="email-address" name="email_Address" required="true" />
+			<aui:input label="email-address" name="email_address" required="true" />
 
 			<aui:input label="username" name="username" required="true" />
 		</aui:fieldset>
@@ -68,20 +67,56 @@
 		</aui:fieldset>
 	</aui:fieldset>
 
-	<%@ include file="/html/registration/addresses.jsp" %>
+	<aui:fieldset label="billing-address-(us-only)">
+		<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+			<liferay-ui:error key="address1-format-error" message="please-enter-a-valid-address" />
+
+			<aui:input label="address1" name="address" required="true" />
+
+			<liferay-ui:error key="address2-format-error" message="please-enter-a-valid-address2" />
+
+			<aui:input name="address2" />
+		</aui:fieldset>
+		<aui:fieldset column="<%= true %>" cssClass="aui-w50">
+			<aui:input name="city" required="true" />
+
+			<aui:select name="state">
+
+			<%
+			Country country = CountryServiceUtil.getCountryByName(CountryConstants.UNITED_STATES);
+
+			List<Region> regions = RegionServiceUtil.getRegions(country.getCountryId());
+
+			for (Region region : regions) {
+			%>
+
+				<aui:option label="<%= region.getName() %>" value="<%= region.getRegionId() %>" />
+
+			<%
+			}
+			%>
+
+			</aui:select>
+
+			<aui:input label="zip-code" name="zip" required="true" />
+		</aui:fieldset>
+	</aui:fieldset>
 
 	<aui:fieldset label="misc">
-		<aui:select label="sercurity-question" name="security_question" width="300">
+		<aui:select label="security-question" name="security_question" width="300">
 			<aui:option label="what-is-your-mother's-maiden-name?" />
 			<aui:option label="what-is-the-make-of-your-first-car?" />
 			<aui:option label="what-is-your-high-school-mascot?" />
-			<aui:option label="what-is-your-favorite-actor?" />
+			<aui:option label="who-is-your-favorite-actor?" />
 		</aui:select>
 
-		<aui:input label="answer" name="security_answer" />
+		<aui:input label="answer" name="security_answer" required="true" />
 
-		<aui:input label="terms-of-use" name="accepted_Tou" type="checkbox" />
+		<aui:field-wrapper label="terms-of-use">
+			<aui:input label="terms-of-use-info" name="accepted_tou" type="checkbox" />
+		</aui:field-wrapper>
 
 		<aui:button type="submit" />
+
 	</aui:fieldset>
 </aui:form>

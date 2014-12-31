@@ -14,33 +14,33 @@
 
 package com.amf.registration.service.base;
 
-import com.amf.registration.service.EventMonitorLocalServiceUtil;
+import com.amf.registration.service.AMFUserLocalServiceUtil;
 
 import java.util.Arrays;
 
 /**
  * @author Brian Wing Shun Chan
  */
-public class EventMonitorLocalServiceClpInvoker {
-	public EventMonitorLocalServiceClpInvoker() {
-		_methodName0 = "addEventMonitor";
+public class AMFUserLocalServiceClpInvoker {
+	public AMFUserLocalServiceClpInvoker() {
+		_methodName0 = "addAMFUser";
 
 		_methodParameterTypes0 = new String[] {
-				"com.amf.registration.model.EventMonitor"
+				"com.amf.registration.model.AMFUser"
 			};
 
-		_methodName1 = "createEventMonitor";
+		_methodName1 = "createAMFUser";
 
 		_methodParameterTypes1 = new String[] { "long" };
 
-		_methodName2 = "deleteEventMonitor";
+		_methodName2 = "deleteAMFUser";
 
 		_methodParameterTypes2 = new String[] { "long" };
 
-		_methodName3 = "deleteEventMonitor";
+		_methodName3 = "deleteAMFUser";
 
 		_methodParameterTypes3 = new String[] {
-				"com.amf.registration.model.EventMonitor"
+				"com.amf.registration.model.AMFUser"
 			};
 
 		_methodName4 = "dynamicQuery";
@@ -72,11 +72,11 @@ public class EventMonitorLocalServiceClpInvoker {
 				"com.liferay.portal.kernel.dao.orm.DynamicQuery"
 			};
 
-		_methodName9 = "fetchEventMonitor";
+		_methodName9 = "fetchAMFUser";
 
 		_methodParameterTypes9 = new String[] { "long" };
 
-		_methodName10 = "getEventMonitor";
+		_methodName10 = "getAMFUser";
 
 		_methodParameterTypes10 = new String[] { "long" };
 
@@ -84,24 +84,24 @@ public class EventMonitorLocalServiceClpInvoker {
 
 		_methodParameterTypes11 = new String[] { "java.io.Serializable" };
 
-		_methodName12 = "getEventMonitors";
+		_methodName12 = "getAMFUsers";
 
 		_methodParameterTypes12 = new String[] { "int", "int" };
 
-		_methodName13 = "getEventMonitorsCount";
+		_methodName13 = "getAMFUsersCount";
 
 		_methodParameterTypes13 = new String[] {  };
 
-		_methodName14 = "updateEventMonitor";
+		_methodName14 = "updateAMFUser";
 
 		_methodParameterTypes14 = new String[] {
-				"com.amf.registration.model.EventMonitor"
+				"com.amf.registration.model.AMFUser"
 			};
 
-		_methodName15 = "updateEventMonitor";
+		_methodName15 = "updateAMFUser";
 
 		_methodParameterTypes15 = new String[] {
-				"com.amf.registration.model.EventMonitor", "boolean"
+				"com.amf.registration.model.AMFUser", "boolean"
 			};
 
 		_methodName42 = "getBeanIdentifier";
@@ -112,90 +112,57 @@ public class EventMonitorLocalServiceClpInvoker {
 
 		_methodParameterTypes43 = new String[] { "java.lang.String" };
 
-		_methodName48 = "addEventMonitor";
+		_methodName48 = "countByZip";
 
-		_methodParameterTypes48 = new String[] {
-				"long", "java.lang.String", "long", "java.lang.String",
-				"java.lang.String"
-			};
+		_methodParameterTypes48 = new String[] { "java.lang.String" };
 
-		_methodName49 = "getEventMonitor";
+		_methodName49 = "findByZip";
 
-		_methodParameterTypes49 = new String[] { "int", "int" };
-
-		_methodName50 = "getEventMonitor";
-
-		_methodParameterTypes50 = new String[] { "long", "int", "int" };
-
-		_methodName51 = "getEventMonitor";
-
-		_methodParameterTypes51 = new String[] {
-				"long", "java.lang.String", "int", "int"
-			};
-
-		_methodName52 = "getEventMonitor";
-
-		_methodParameterTypes52 = new String[] { "java.lang.String", "int", "int" };
-
-		_methodName53 = "getEventMonitorCount";
-
-		_methodParameterTypes53 = new String[] {  };
-
-		_methodName54 = "getEventMonitorCount";
-
-		_methodParameterTypes54 = new String[] { "long" };
-
-		_methodName55 = "getEventMonitorCount";
-
-		_methodParameterTypes55 = new String[] { "long", "java.lang.String" };
-
-		_methodName56 = "getEventMonitorCount";
-
-		_methodParameterTypes56 = new String[] { "java.lang.String" };
+		_methodParameterTypes49 = new String[] { "java.lang.String", "int", "int" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
 		Object[] arguments) throws Throwable {
 		if (_methodName0.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes0, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.addEventMonitor((com.amf.registration.model.EventMonitor)arguments[0]);
+			return AMFUserLocalServiceUtil.addAMFUser((com.amf.registration.model.AMFUser)arguments[0]);
 		}
 
 		if (_methodName1.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes1, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.createEventMonitor(((Long)arguments[0]).longValue());
+			return AMFUserLocalServiceUtil.createAMFUser(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName2.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes2, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.deleteEventMonitor(((Long)arguments[0]).longValue());
+			return AMFUserLocalServiceUtil.deleteAMFUser(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName3.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes3, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.deleteEventMonitor((com.amf.registration.model.EventMonitor)arguments[0]);
+			return AMFUserLocalServiceUtil.deleteAMFUser((com.amf.registration.model.AMFUser)arguments[0]);
 		}
 
 		if (_methodName4.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes4, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.dynamicQuery();
+			return AMFUserLocalServiceUtil.dynamicQuery();
 		}
 
 		if (_methodName5.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes5, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
+			return AMFUserLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
 		}
 
 		if (_methodName6.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes6, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
+			return AMFUserLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
 		if (_methodName7.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes7, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
+			return AMFUserLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue(),
 				(com.liferay.portal.kernel.util.OrderByComparator)arguments[3]);
@@ -203,113 +170,68 @@ public class EventMonitorLocalServiceClpInvoker {
 
 		if (_methodName8.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes8, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
+			return AMFUserLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
 		}
 
 		if (_methodName9.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes9, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.fetchEventMonitor(((Long)arguments[0]).longValue());
+			return AMFUserLocalServiceUtil.fetchAMFUser(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName10.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitor(((Long)arguments[0]).longValue());
+			return AMFUserLocalServiceUtil.getAMFUser(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName11.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getPersistedModel((java.io.Serializable)arguments[0]);
+			return AMFUserLocalServiceUtil.getPersistedModel((java.io.Serializable)arguments[0]);
 		}
 
 		if (_methodName12.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes12, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitors(((Integer)arguments[0]).intValue(),
+			return AMFUserLocalServiceUtil.getAMFUsers(((Integer)arguments[0]).intValue(),
 				((Integer)arguments[1]).intValue());
 		}
 
 		if (_methodName13.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes13, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitorsCount();
+			return AMFUserLocalServiceUtil.getAMFUsersCount();
 		}
 
 		if (_methodName14.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes14, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.updateEventMonitor((com.amf.registration.model.EventMonitor)arguments[0]);
+			return AMFUserLocalServiceUtil.updateAMFUser((com.amf.registration.model.AMFUser)arguments[0]);
 		}
 
 		if (_methodName15.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes15, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.updateEventMonitor((com.amf.registration.model.EventMonitor)arguments[0],
+			return AMFUserLocalServiceUtil.updateAMFUser((com.amf.registration.model.AMFUser)arguments[0],
 				((Boolean)arguments[1]).booleanValue());
 		}
 
 		if (_methodName42.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes42, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getBeanIdentifier();
+			return AMFUserLocalServiceUtil.getBeanIdentifier();
 		}
 
 		if (_methodName43.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes43, parameterTypes)) {
-			EventMonitorLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
+			AMFUserLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
 		}
 
 		if (_methodName48.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes48, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.addEventMonitor(((Long)arguments[0]).longValue(),
-				(java.lang.String)arguments[1],
-				((Long)arguments[2]).longValue(),
-				(java.lang.String)arguments[3], (java.lang.String)arguments[4]);
+			return AMFUserLocalServiceUtil.countByZip((java.lang.String)arguments[0]);
 		}
 
 		if (_methodName49.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes49, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitor(((Integer)arguments[0]).intValue(),
-				((Integer)arguments[1]).intValue());
-		}
-
-		if (_methodName50.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes50, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitor(((Long)arguments[0]).longValue(),
+			return AMFUserLocalServiceUtil.findByZip((java.lang.String)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
-		}
-
-		if (_methodName51.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes51, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitor(((Long)arguments[0]).longValue(),
-				(java.lang.String)arguments[1],
-				((Integer)arguments[2]).intValue(),
-				((Integer)arguments[3]).intValue());
-		}
-
-		if (_methodName52.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes52, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitor((java.lang.String)arguments[0],
-				((Integer)arguments[1]).intValue(),
-				((Integer)arguments[2]).intValue());
-		}
-
-		if (_methodName53.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes53, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitorCount();
-		}
-
-		if (_methodName54.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes54, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitorCount(((Long)arguments[0]).longValue());
-		}
-
-		if (_methodName55.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes55, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitorCount(((Long)arguments[0]).longValue(),
-				(java.lang.String)arguments[1]);
-		}
-
-		if (_methodName56.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes56, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitorCount((java.lang.String)arguments[0]);
 		}
 
 		throw new UnsupportedOperationException();
@@ -355,18 +277,4 @@ public class EventMonitorLocalServiceClpInvoker {
 	private String[] _methodParameterTypes48;
 	private String _methodName49;
 	private String[] _methodParameterTypes49;
-	private String _methodName50;
-	private String[] _methodParameterTypes50;
-	private String _methodName51;
-	private String[] _methodParameterTypes51;
-	private String _methodName52;
-	private String[] _methodParameterTypes52;
-	private String _methodName53;
-	private String[] _methodParameterTypes53;
-	private String _methodName54;
-	private String[] _methodParameterTypes54;
-	private String _methodName55;
-	private String[] _methodParameterTypes55;
-	private String _methodName56;
-	private String[] _methodParameterTypes56;
 }

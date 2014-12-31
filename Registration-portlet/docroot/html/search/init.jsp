@@ -16,4 +16,4 @@
 
 <%@ include file="/html/init.jsp" %>
 
-<%@ page import="com.amf.registration.RegistrationAddressZipException" %>
+<%@ page import="com.liferay.portal.AddressZipException" %>

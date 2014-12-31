@@ -15,10 +15,10 @@
 package com.amf.registration.service.base;
 
 import com.amf.registration.model.EventMonitor;
-import com.amf.registration.service.AddressLocalService;
+import com.amf.registration.service.AMFUserLocalService;
 import com.amf.registration.service.EventMonitorLocalService;
-import com.amf.registration.service.persistence.AddressFinder;
-import com.amf.registration.service.persistence.AddressPersistence;
+import com.amf.registration.service.persistence.AMFUserFinder;
+import com.amf.registration.service.persistence.AMFUserPersistence;
 import com.amf.registration.service.persistence.EventMonitorPersistence;
 
 import com.liferay.counter.service.CounterLocalService;
@@ -276,57 +276,57 @@ public abstract class EventMonitorLocalServiceBaseImpl
 	}
 
 	/**
-	 * Returns the address local service.
+	 * Returns the a m f user local service.
 	 *
-	 * @return the address local service
+	 * @return the a m f user local service
 	 */
-	public AddressLocalService getAddressLocalService() {
-		return addressLocalService;
+	public AMFUserLocalService getAMFUserLocalService() {
+		return amfUserLocalService;
 	}
 
 	/**
-	 * Sets the address local service.
+	 * Sets the a m f user local service.
 	 *
-	 * @param addressLocalService the address local service
+	 * @param amfUserLocalService the a m f user local service
 	 */
-	public void setAddressLocalService(AddressLocalService addressLocalService) {
-		this.addressLocalService = addressLocalService;
+	public void setAMFUserLocalService(AMFUserLocalService amfUserLocalService) {
+		this.amfUserLocalService = amfUserLocalService;
 	}
 
 	/**
-	 * Returns the address persistence.
+	 * Returns the a m f user persistence.
 	 *
-	 * @return the address persistence
+	 * @return the a m f user persistence
 	 */
-	public AddressPersistence getAddressPersistence() {
-		return addressPersistence;
+	public AMFUserPersistence getAMFUserPersistence() {
+		return amfUserPersistence;
 	}
 
 	/**
-	 * Sets the address persistence.
+	 * Sets the a m f user persistence.
 	 *
-	 * @param addressPersistence the address persistence
+	 * @param amfUserPersistence the a m f user persistence
 	 */
-	public void setAddressPersistence(AddressPersistence addressPersistence) {
-		this.addressPersistence = addressPersistence;
+	public void setAMFUserPersistence(AMFUserPersistence amfUserPersistence) {
+		this.amfUserPersistence = amfUserPersistence;
 	}
 
 	/**
-	 * Returns the address finder.
+	 * Returns the a m f user finder.
 	 *
-	 * @return the address finder
+	 * @return the a m f user finder
 	 */
-	public AddressFinder getAddressFinder() {
-		return addressFinder;
+	public AMFUserFinder getAMFUserFinder() {
+		return amfUserFinder;
 	}
 
 	/**
-	 * Sets the address finder.
+	 * Sets the a m f user finder.
 	 *
-	 * @param addressFinder the address finder
+	 * @param amfUserFinder the a m f user finder
 	 */
-	public void setAddressFinder(AddressFinder addressFinder) {
-		this.addressFinder = addressFinder;
+	public void setAMFUserFinder(AMFUserFinder amfUserFinder) {
+		this.amfUserFinder = amfUserFinder;
 	}
 
 	/**
@@ -573,12 +573,12 @@ public abstract class EventMonitorLocalServiceBaseImpl
 		}
 	}
 
-	@BeanReference(type = AddressLocalService.class)
-	protected AddressLocalService addressLocalService;
-	@BeanReference(type = AddressPersistence.class)
-	protected AddressPersistence addressPersistence;
-	@BeanReference(type = AddressFinder.class)
-	protected AddressFinder addressFinder;
+	@BeanReference(type = AMFUserLocalService.class)
+	protected AMFUserLocalService amfUserLocalService;
+	@BeanReference(type = AMFUserPersistence.class)
+	protected AMFUserPersistence amfUserPersistence;
+	@BeanReference(type = AMFUserFinder.class)
+	protected AMFUserFinder amfUserFinder;
 	@BeanReference(type = EventMonitorLocalService.class)
 	protected EventMonitorLocalService eventMonitorLocalService;
 	@BeanReference(type = EventMonitorPersistence.class)
