@@ -17,6 +17,7 @@ package com.amf.registration.service.base;
 import com.amf.registration.model.EventMonitor;
 import com.amf.registration.service.AMFUserLocalService;
 import com.amf.registration.service.EventMonitorLocalService;
+import com.amf.registration.service.EventMonitorService;
 import com.amf.registration.service.persistence.AMFUserFinder;
 import com.amf.registration.service.persistence.AMFUserPersistence;
 import com.amf.registration.service.persistence.EventMonitorPersistence;
@@ -349,6 +350,24 @@ public abstract class EventMonitorLocalServiceBaseImpl
 	}
 
 	/**
+	 * Returns the event monitor remote service.
+	 *
+	 * @return the event monitor remote service
+	 */
+	public EventMonitorService getEventMonitorService() {
+		return eventMonitorService;
+	}
+
+	/**
+	 * Sets the event monitor remote service.
+	 *
+	 * @param eventMonitorService the event monitor remote service
+	 */
+	public void setEventMonitorService(EventMonitorService eventMonitorService) {
+		this.eventMonitorService = eventMonitorService;
+	}
+
+	/**
 	 * Returns the event monitor persistence.
 	 *
 	 * @return the event monitor persistence
@@ -581,6 +600,8 @@ public abstract class EventMonitorLocalServiceBaseImpl
 	protected AMFUserFinder amfUserFinder;
 	@BeanReference(type = EventMonitorLocalService.class)
 	protected EventMonitorLocalService eventMonitorLocalService;
+	@BeanReference(type = EventMonitorService.class)
+	protected EventMonitorService eventMonitorService;
 	@BeanReference(type = EventMonitorPersistence.class)
 	protected EventMonitorPersistence eventMonitorPersistence;
 	@BeanReference(type = CounterLocalService.class)

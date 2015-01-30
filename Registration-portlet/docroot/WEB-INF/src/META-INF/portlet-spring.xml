@@ -5,5 +5,6 @@
 	<bean id="com.amf.registration.service.persistence.AMFUserPersistence" class="com.amf.registration.service.persistence.AMFUserPersistenceImpl" parent="basePersistence" />
 	<bean id="com.amf.registration.service.persistence.AMFUserFinder" class="com.amf.registration.service.persistence.AMFUserFinderImpl" parent="basePersistence" />
 	<bean id="com.amf.registration.service.EventMonitorLocalService" class="com.amf.registration.service.impl.EventMonitorLocalServiceImpl" />
+	<bean id="com.amf.registration.service.EventMonitorService" class="com.amf.registration.service.impl.EventMonitorServiceImpl" />
 	<bean id="com.amf.registration.service.persistence.EventMonitorPersistence" class="com.amf.registration.service.persistence.EventMonitorPersistenceImpl" parent="basePersistence" />
 </beans>

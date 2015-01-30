@@ -12,11 +12,19 @@
  * details.
  */
 
-package com.amf.registration.util;
+package com.amf.registration.service.permission;
 
-public class PermissionModelNameConstants {
+import com.liferay.portal.security.permission.PermissionChecker;
+public class EventMonitorPermissionUtil {
 
-	public static final String REGISTRATION_MODEL =
-		"com.amf.registration.model";
+	public static boolean contains(
+		PermissionChecker permissionChecker, long groupId, String actionId) {
+
+		return permissionChecker.hasPermission(
+			groupId, MODEL_NAME, groupId, actionId);
+	}
+
+	private static final String MODEL_NAME =
+		"com.amf.registration.model.eventMonitor";
 
 }

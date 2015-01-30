@@ -113,44 +113,44 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 
 		_methodParameterTypes17 = new String[] { "java.lang.String" };
 
-		_methodName19 = "addEventMonitor";
+		_methodName19 = "addEvent";
 
 		_methodParameterTypes19 = new String[] {
-				"long", "java.lang.String", "long", "java.lang.String",
+				"long", "long", "java.lang.String", "java.lang.String",
 				"java.lang.String"
 			};
 
-		_methodName20 = "getEventMonitor";
+		_methodName20 = "getEvent";
 
 		_methodParameterTypes20 = new String[] { "int", "int" };
 
-		_methodName21 = "getEventMonitor";
+		_methodName21 = "getEvent";
 
 		_methodParameterTypes21 = new String[] { "long", "int", "int" };
 
-		_methodName22 = "getEventMonitor";
+		_methodName22 = "getEvent";
 
 		_methodParameterTypes22 = new String[] {
 				"long", "java.lang.String", "int", "int"
 			};
 
-		_methodName23 = "getEventMonitor";
+		_methodName23 = "getEvent";
 
 		_methodParameterTypes23 = new String[] { "java.lang.String", "int", "int" };
 
-		_methodName24 = "getEventMonitorCount";
+		_methodName24 = "getEventCount";
 
 		_methodParameterTypes24 = new String[] {  };
 
-		_methodName25 = "getEventMonitorCount";
+		_methodName25 = "getEventCount";
 
 		_methodParameterTypes25 = new String[] { "long" };
 
-		_methodName26 = "getEventMonitorCount";
+		_methodName26 = "getEventCount";
 
 		_methodParameterTypes26 = new String[] { "long", "java.lang.String" };
 
-		_methodName27 = "getEventMonitorCount";
+		_methodName27 = "getEventCount";
 
 		_methodParameterTypes27 = new String[] { "java.lang.String" };
 	}
@@ -685,9 +685,9 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		throw new UnsupportedOperationException();
 	}
 
-	public com.amf.registration.model.EventMonitor addEventMonitor(
-		long userId, java.lang.String userName, long companyId,
-		java.lang.String eventType, java.lang.String ipAddress)
+	public com.amf.registration.model.EventMonitor addEvent(long companyId,
+		long userId, java.lang.String userName, java.lang.String eventType,
+		java.lang.String ipAddress)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -695,11 +695,11 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 			returnObj = _invokableLocalService.invokeMethod(_methodName19,
 					_methodParameterTypes19,
 					new Object[] {
-						userId,
+						companyId,
+						
+					userId,
 						
 					ClpSerializer.translateInput(userName),
-						
-					companyId,
 						
 					ClpSerializer.translateInput(eventType),
 						
@@ -725,7 +725,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return (com.amf.registration.model.EventMonitor)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -753,7 +753,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return (java.util.List<com.amf.registration.model.EventMonitor>)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -781,7 +781,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return (java.util.List<com.amf.registration.model.EventMonitor>)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		long userId, java.lang.String eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -818,7 +818,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return (java.util.List<com.amf.registration.model.EventMonitor>)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		java.lang.String eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -853,7 +853,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return (java.util.List<com.amf.registration.model.EventMonitor>)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public int getEventMonitorCount()
+	public int getEventCount()
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -880,7 +880,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return ((Integer)returnObj).intValue();
 	}
 
-	public int getEventMonitorCount(long userId)
+	public int getEventCount(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -907,7 +907,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return ((Integer)returnObj).intValue();
 	}
 
-	public int getEventMonitorCount(long userId, java.lang.String eventType)
+	public int getEventCount(long userId, java.lang.String eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -936,7 +936,7 @@ public class EventMonitorLocalServiceClp implements EventMonitorLocalService {
 		return ((Integer)returnObj).intValue();
 	}
 
-	public int getEventMonitorCount(java.lang.String eventType)
+	public int getEventCount(java.lang.String eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 

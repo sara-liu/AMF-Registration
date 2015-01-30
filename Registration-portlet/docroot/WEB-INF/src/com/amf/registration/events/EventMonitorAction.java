@@ -19,14 +19,11 @@ import com.amf.registration.util.EventTypeConstants;
 
 import com.liferay.portal.kernel.events.Action;
 import com.liferay.portal.kernel.events.ActionException;
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.User;
 import com.liferay.portal.util.PortalUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 public class EventMonitorAction extends Action {
 
 	public void run(HttpServletRequest request, HttpServletResponse response)
@@ -39,12 +36,12 @@ public class EventMonitorAction extends Action {
 
 			user = PortalUtil.getUser(request);
 
-			EventMonitorLocalServiceUtil.addEventMonitor(
-				user.getUserId(), user.getScreenName(), user.getCompanyId(),
+			EventMonitorLocalServiceUtil.addEvent(
+				user.getCompanyId(), user.getUserId(), user.getScreenName(),
 				EventTypeConstants.LOGIN, ipAddress);
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 	}
 
 }

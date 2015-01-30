@@ -2,7 +2,7 @@
 <!DOCTYPE resource-action-mapping PUBLIC "-//Liferay//DTD Resource Action Mapping 6.1.0//EN" "http://www.liferay.com/dtd/liferay-resource-action-mapping_6_2_0.dtd">
 <resource-action-mapping>
 	<model-resource>
-		<model-name>com.amf.registration.model</model-name>
+		<model-name>com.amf.registration.model.eventMonitor</model-name>
 		<portlet-ref>
 			<portlet-name>amf-event-monitor-portlet</portlet-name>
 		</portlet-ref>

@@ -31,4 +31,5 @@ public class AMFUserImpl extends AMFUserBaseImpl {
 	 */
 	public AMFUserImpl() {
 	}
+
 }

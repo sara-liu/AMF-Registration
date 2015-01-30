@@ -21,9 +21,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * This class is used by SOAP remote services.
+ * This class is used by SOAP remote services, specifically {@link com.amf.registration.service.http.EventMonitorServiceSoap}.
  *
  * @author    Sara Liu
+ * @see       com.amf.registration.service.http.EventMonitorServiceSoap
  * @generated
  */
 public class EventMonitorSoap implements Serializable {

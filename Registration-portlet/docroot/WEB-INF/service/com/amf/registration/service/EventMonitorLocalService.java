@@ -247,44 +247,44 @@ public interface EventMonitorLocalService extends BaseLocalService,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
 
-	public com.amf.registration.model.EventMonitor addEventMonitor(
-		long userId, java.lang.String userName, long companyId,
-		java.lang.String eventType, java.lang.String ipAddress)
+	public com.amf.registration.model.EventMonitor addEvent(long companyId,
+		long userId, java.lang.String userName, java.lang.String eventType,
+		java.lang.String ipAddress)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		long userId, java.lang.String eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		java.lang.String eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEventMonitorCount()
+	public int getEventCount()
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEventMonitorCount(long userId)
+	public int getEventCount(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEventMonitorCount(long userId, java.lang.String eventType)
+	public int getEventCount(long userId, java.lang.String eventType)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEventMonitorCount(java.lang.String eventType)
+	public int getEventCount(java.lang.String eventType)
 		throws com.liferay.portal.kernel.exception.SystemException;
 }

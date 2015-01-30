@@ -16,8 +16,8 @@ package com.amf.registration.util;
 
 public class EventTypeConstants {
 
-	public static final String LOGIN = "Login";
+	public static final String LOGIN = "login";
 
-	public static final String REGISTRATION = "Registration";
+	public static final String REGISTRATION = "registration";
 
 }

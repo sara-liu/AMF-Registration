@@ -104,54 +104,54 @@ public class EventMonitorLocalServiceClpInvoker {
 				"com.amf.registration.model.EventMonitor", "boolean"
 			};
 
-		_methodName42 = "getBeanIdentifier";
+		_methodName44 = "getBeanIdentifier";
 
-		_methodParameterTypes42 = new String[] {  };
+		_methodParameterTypes44 = new String[] {  };
 
-		_methodName43 = "setBeanIdentifier";
+		_methodName45 = "setBeanIdentifier";
 
-		_methodParameterTypes43 = new String[] { "java.lang.String" };
+		_methodParameterTypes45 = new String[] { "java.lang.String" };
 
-		_methodName48 = "addEventMonitor";
+		_methodName50 = "addEvent";
 
-		_methodParameterTypes48 = new String[] {
-				"long", "java.lang.String", "long", "java.lang.String",
+		_methodParameterTypes50 = new String[] {
+				"long", "long", "java.lang.String", "java.lang.String",
 				"java.lang.String"
 			};
 
-		_methodName49 = "getEventMonitor";
+		_methodName51 = "getEvent";
 
-		_methodParameterTypes49 = new String[] { "int", "int" };
+		_methodParameterTypes51 = new String[] { "int", "int" };
 
-		_methodName50 = "getEventMonitor";
+		_methodName52 = "getEvent";
 
-		_methodParameterTypes50 = new String[] { "long", "int", "int" };
+		_methodParameterTypes52 = new String[] { "long", "int", "int" };
 
-		_methodName51 = "getEventMonitor";
+		_methodName53 = "getEvent";
 
-		_methodParameterTypes51 = new String[] {
+		_methodParameterTypes53 = new String[] {
 				"long", "java.lang.String", "int", "int"
 			};
 
-		_methodName52 = "getEventMonitor";
+		_methodName54 = "getEvent";
 
-		_methodParameterTypes52 = new String[] { "java.lang.String", "int", "int" };
+		_methodParameterTypes54 = new String[] { "java.lang.String", "int", "int" };
 
-		_methodName53 = "getEventMonitorCount";
+		_methodName55 = "getEventCount";
 
-		_methodParameterTypes53 = new String[] {  };
+		_methodParameterTypes55 = new String[] {  };
 
-		_methodName54 = "getEventMonitorCount";
+		_methodName56 = "getEventCount";
 
-		_methodParameterTypes54 = new String[] { "long" };
+		_methodParameterTypes56 = new String[] { "long" };
 
-		_methodName55 = "getEventMonitorCount";
+		_methodName57 = "getEventCount";
 
-		_methodParameterTypes55 = new String[] { "long", "java.lang.String" };
+		_methodParameterTypes57 = new String[] { "long", "java.lang.String" };
 
-		_methodName56 = "getEventMonitorCount";
+		_methodName58 = "getEventCount";
 
-		_methodParameterTypes56 = new String[] { "java.lang.String" };
+		_methodParameterTypes58 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -243,73 +243,73 @@ public class EventMonitorLocalServiceClpInvoker {
 				((Boolean)arguments[1]).booleanValue());
 		}
 
-		if (_methodName42.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes42, parameterTypes)) {
+		if (_methodName44.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes44, parameterTypes)) {
 			return EventMonitorLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName43.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes43, parameterTypes)) {
+		if (_methodName45.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes45, parameterTypes)) {
 			EventMonitorLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
 		}
 
-		if (_methodName48.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes48, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.addEventMonitor(((Long)arguments[0]).longValue(),
-				(java.lang.String)arguments[1],
-				((Long)arguments[2]).longValue(),
-				(java.lang.String)arguments[3], (java.lang.String)arguments[4]);
-		}
-
-		if (_methodName49.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes49, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitor(((Integer)arguments[0]).intValue(),
-				((Integer)arguments[1]).intValue());
-		}
-
 		if (_methodName50.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes50, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitor(((Long)arguments[0]).longValue(),
-				((Integer)arguments[1]).intValue(),
-				((Integer)arguments[2]).intValue());
+			return EventMonitorLocalServiceUtil.addEvent(((Long)arguments[0]).longValue(),
+				((Long)arguments[1]).longValue(),
+				(java.lang.String)arguments[2], (java.lang.String)arguments[3],
+				(java.lang.String)arguments[4]);
 		}
 
 		if (_methodName51.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes51, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitor(((Long)arguments[0]).longValue(),
-				(java.lang.String)arguments[1],
-				((Integer)arguments[2]).intValue(),
-				((Integer)arguments[3]).intValue());
+			return EventMonitorLocalServiceUtil.getEvent(((Integer)arguments[0]).intValue(),
+				((Integer)arguments[1]).intValue());
 		}
 
 		if (_methodName52.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes52, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitor((java.lang.String)arguments[0],
+			return EventMonitorLocalServiceUtil.getEvent(((Long)arguments[0]).longValue(),
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
 		if (_methodName53.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes53, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitorCount();
+			return EventMonitorLocalServiceUtil.getEvent(((Long)arguments[0]).longValue(),
+				(java.lang.String)arguments[1],
+				((Integer)arguments[2]).intValue(),
+				((Integer)arguments[3]).intValue());
 		}
 
 		if (_methodName54.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes54, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitorCount(((Long)arguments[0]).longValue());
+			return EventMonitorLocalServiceUtil.getEvent((java.lang.String)arguments[0],
+				((Integer)arguments[1]).intValue(),
+				((Integer)arguments[2]).intValue());
 		}
 
 		if (_methodName55.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes55, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitorCount(((Long)arguments[0]).longValue(),
-				(java.lang.String)arguments[1]);
+			return EventMonitorLocalServiceUtil.getEventCount();
 		}
 
 		if (_methodName56.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes56, parameterTypes)) {
-			return EventMonitorLocalServiceUtil.getEventMonitorCount((java.lang.String)arguments[0]);
+			return EventMonitorLocalServiceUtil.getEventCount(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName57.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes57, parameterTypes)) {
+			return EventMonitorLocalServiceUtil.getEventCount(((Long)arguments[0]).longValue(),
+				(java.lang.String)arguments[1]);
+		}
+
+		if (_methodName58.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes58, parameterTypes)) {
+			return EventMonitorLocalServiceUtil.getEventCount((java.lang.String)arguments[0]);
 		}
 
 		throw new UnsupportedOperationException();
@@ -347,14 +347,10 @@ public class EventMonitorLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName42;
-	private String[] _methodParameterTypes42;
-	private String _methodName43;
-	private String[] _methodParameterTypes43;
-	private String _methodName48;
-	private String[] _methodParameterTypes48;
-	private String _methodName49;
-	private String[] _methodParameterTypes49;
+	private String _methodName44;
+	private String[] _methodParameterTypes44;
+	private String _methodName45;
+	private String[] _methodParameterTypes45;
 	private String _methodName50;
 	private String[] _methodParameterTypes50;
 	private String _methodName51;
@@ -369,4 +365,8 @@ public class EventMonitorLocalServiceClpInvoker {
 	private String[] _methodParameterTypes55;
 	private String _methodName56;
 	private String[] _methodParameterTypes56;
+	private String _methodName57;
+	private String[] _methodParameterTypes57;
+	private String _methodName58;
+	private String[] _methodParameterTypes58;
 }

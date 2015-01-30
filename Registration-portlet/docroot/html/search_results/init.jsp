@@ -16,8 +16,7 @@
 
 <%@ include file="/html/init.jsp" %>
 
-<%@ page import="com.amf.registration.model.Address" %><%@
-page import="com.amf.registration.service.AMFUserLocalServiceUtil" %>
+<%@ page import="com.amf.registration.service.AMFUserLocalServiceUtil" %>
 
 <%@ page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@

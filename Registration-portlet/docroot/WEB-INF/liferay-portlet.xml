@@ -6,36 +6,24 @@
 		<portlet-name>amf-registration-portlet</portlet-name>
 		<icon>/icon.png</icon>
 		<instanceable>false</instanceable>
-		<footer-portlet-javascript>
-			/js/main.js
-		</footer-portlet-javascript>
 	</portlet>
 	<portlet>
 		<portlet-name>amf-event-monitor-portlet</portlet-name>
 		<icon>/icon.png</icon>
 		<instanceable>false</instanceable>
 		<header-portlet-css>/html/eventmonitor/css/main.css</header-portlet-css>
-		<footer-portlet-javascript>
-			/js/main.js
-		</footer-portlet-javascript>
 		<css-class-wrapper>amf-event-monitor-portlet</css-class-wrapper>
 	</portlet>
 	<portlet>
 		<portlet-name>amf-search-portlet</portlet-name>
 		<icon>/icon.png</icon>
 		<instanceable>false</instanceable>
-		<footer-portlet-javascript>
-			/js/main.js
-		</footer-portlet-javascript>
 	</portlet>
 	<portlet>
 		<portlet-name>amf-search-results-portlet</portlet-name>
 		<icon>/icon.png</icon>
 		<instanceable>false</instanceable>
 		<header-portlet-css>/html/search_results/css/main.css</header-portlet-css>
-		<footer-portlet-javascript>
-			/js/main.js
-		</footer-portlet-javascript>
 		<css-class-wrapper>
 			amf-search-results-portlet
 		</css-class-wrapper>

@@ -17,6 +17,7 @@ package com.amf.registration.service.messaging;
 import com.amf.registration.service.AMFUserLocalServiceUtil;
 import com.amf.registration.service.ClpSerializer;
 import com.amf.registration.service.EventMonitorLocalServiceUtil;
+import com.amf.registration.service.EventMonitorServiceUtil;
 
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
@@ -39,6 +40,8 @@ public class ClpMessageListener extends BaseMessageListener {
 			AMFUserLocalServiceUtil.clearService();
 
 			EventMonitorLocalServiceUtil.clearService();
+
+			EventMonitorServiceUtil.clearService();
 		}
 	}
 }

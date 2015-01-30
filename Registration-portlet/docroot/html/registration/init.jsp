@@ -18,8 +18,7 @@
 
 <%@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
-<%@ page import="com.amf.registration.model.Address" %><%@
-page import="com.amf.registration.util.CountryConstants" %>
+<%@ page import="com.amf.registration.util.CountryConstants" %>
 
 <%@ page import="com.liferay.portal.AddressCityException" %><%@
 page import="com.liferay.portal.AddressStreetException" %><%@

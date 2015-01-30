@@ -39,8 +39,8 @@ import java.util.List;
 public class EventMonitorLocalServiceImpl
 	extends EventMonitorLocalServiceBaseImpl {
 
-	public EventMonitor addEventMonitor(
-			long userId, String userName, long companyId, String eventType,
+	public EventMonitor addEvent(
+			long companyId, long userId, String userName, String eventType,
 			String ipAddress)
 		throws SystemException {
 
@@ -63,47 +63,46 @@ public class EventMonitorLocalServiceImpl
 		return eventMonitor;
 	}
 
-	public List<EventMonitor> getEventMonitor(int start, int end)
+	public List<EventMonitor> getEvent(int start, int end)
 		throws SystemException {
 
 		return eventMonitorPersistence.findAll(start, end);
 	}
 
-	public List<EventMonitor> getEventMonitor(long userId, int start, int end)
+	public List<EventMonitor> getEvent(long userId, int start, int end)
 		throws SystemException {
 
 		return eventMonitorPersistence.findByUserId(userId);
 	}
 
-	public List<EventMonitor> getEventMonitor(
+	public List<EventMonitor> getEvent(
 			long userId, String eventType, int start, int end)
 		throws SystemException {
 
 		return eventMonitorPersistence.findByU_ET(userId, eventType);
 	}
 
-	public List<EventMonitor> getEventMonitor(
-			String eventType, int start, int end)
+	public List<EventMonitor> getEvent(String eventType, int start, int end)
 		throws SystemException {
 
 		return eventMonitorPersistence.findByEventType(eventType);
 	}
 
-	public int getEventMonitorCount() throws SystemException {
+	public int getEventCount() throws SystemException {
 		return eventMonitorPersistence.countAll();
 	}
 
-	public int getEventMonitorCount(long userId) throws SystemException {
+	public int getEventCount(long userId) throws SystemException {
 		return eventMonitorPersistence.countByUserId(userId);
 	}
 
-	public int getEventMonitorCount(long userId, String eventType)
+	public int getEventCount(long userId, String eventType)
 		throws SystemException {
 
 		return eventMonitorPersistence.countByU_ET(userId, eventType);
 	}
 
-	public int getEventMonitorCount(String eventType) throws SystemException {
+	public int getEventCount(String eventType) throws SystemException {
 		return eventMonitorPersistence.countByEventType(eventType);
 	}
 

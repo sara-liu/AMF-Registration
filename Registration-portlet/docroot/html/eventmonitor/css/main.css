@@ -11,8 +11,6 @@
 		.results-row td {
 			background: #EEF0F2;
 			border-style: none;
-			font-family: Consolas;
-			font-size: 13px;
 		}
 
 		.results-row.alt td {

@@ -16,9 +16,11 @@ package com.amf.registration.model.impl;
 
 import com.amf.registration.model.EventMonitor;
 import com.amf.registration.model.EventMonitorModel;
+import com.amf.registration.model.EventMonitorSoap;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.json.JSON;
 import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
@@ -36,8 +38,10 @@ import java.io.Serializable;
 
 import java.sql.Types;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -53,6 +57,7 @@ import java.util.Map;
  * @see com.amf.registration.model.EventMonitorModel
  * @generated
  */
+@JSON(strict = true)
 public class EventMonitorModelImpl extends BaseModelImpl<EventMonitor>
 	implements EventMonitorModel {
 	/*
@@ -88,6 +93,51 @@ public class EventMonitorModelImpl extends BaseModelImpl<EventMonitor>
 			true);
 	public static long EVENTTYPE_COLUMN_BITMASK = 1L;
 	public static long USERID_COLUMN_BITMASK = 2L;
+
+	/**
+	 * Converts the soap model instance into a normal model instance.
+	 *
+	 * @param soapModel the soap model instance to convert
+	 * @return the normal model instance
+	 */
+	public static EventMonitor toModel(EventMonitorSoap soapModel) {
+		if (soapModel == null) {
+			return null;
+		}
+
+		EventMonitor model = new EventMonitorImpl();
+
+		model.setEventMonitorId(soapModel.getEventMonitorId());
+		model.setCompanyId(soapModel.getCompanyId());
+		model.setUserId(soapModel.getUserId());
+		model.setUserName(soapModel.getUserName());
+		model.setStartDate(soapModel.getStartDate());
+		model.setEventType(soapModel.getEventType());
+		model.setIpAddress(soapModel.getIpAddress());
+
+		return model;
+	}
+
+	/**
+	 * Converts the soap model instances into normal model instances.
+	 *
+	 * @param soapModels the soap model instances to convert
+	 * @return the normal model instances
+	 */
+	public static List<EventMonitor> toModels(EventMonitorSoap[] soapModels) {
+		if (soapModels == null) {
+			return null;
+		}
+
+		List<EventMonitor> models = new ArrayList<EventMonitor>(soapModels.length);
+
+		for (EventMonitorSoap soapModel : soapModels) {
+			models.add(toModel(soapModel));
+		}
+
+		return models;
+	}
+
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
 				"lock.expiration.time.com.amf.registration.model.EventMonitor"));
 
@@ -178,6 +228,7 @@ public class EventMonitorModelImpl extends BaseModelImpl<EventMonitor>
 		}
 	}
 
+	@JSON
 	public long getEventMonitorId() {
 		return _eventMonitorId;
 	}
@@ -186,6 +237,7 @@ public class EventMonitorModelImpl extends BaseModelImpl<EventMonitor>
 		_eventMonitorId = eventMonitorId;
 	}
 
+	@JSON
 	public long getCompanyId() {
 		return _companyId;
 	}
@@ -194,6 +246,7 @@ public class EventMonitorModelImpl extends BaseModelImpl<EventMonitor>
 		_companyId = companyId;
 	}
 
+	@JSON
 	public long getUserId() {
 		return _userId;
 	}
@@ -222,6 +275,7 @@ public class EventMonitorModelImpl extends BaseModelImpl<EventMonitor>
 		return _originalUserId;
 	}
 
+	@JSON
 	public String getUserName() {
 		if (_userName == null) {
 			return StringPool.BLANK;
@@ -235,6 +289,7 @@ public class EventMonitorModelImpl extends BaseModelImpl<EventMonitor>
 		_userName = userName;
 	}
 
+	@JSON
 	public Date getStartDate() {
 		return _startDate;
 	}
@@ -245,6 +300,7 @@ public class EventMonitorModelImpl extends BaseModelImpl<EventMonitor>
 		_startDate = startDate;
 	}
 
+	@JSON
 	public String getEventType() {
 		if (_eventType == null) {
 			return StringPool.BLANK;
@@ -268,6 +324,7 @@ public class EventMonitorModelImpl extends BaseModelImpl<EventMonitor>
 		return GetterUtil.getString(_originalEventType);
 	}
 
+	@JSON
 	public String getIpAddress() {
 		if (_ipAddress == null) {
 			return StringPool.BLANK;

@@ -273,58 +273,56 @@ public class EventMonitorLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
-	public static com.amf.registration.model.EventMonitor addEventMonitor(
-		long userId, java.lang.String userName, long companyId,
+	public static com.amf.registration.model.EventMonitor addEvent(
+		long companyId, long userId, java.lang.String userName,
 		java.lang.String eventType, java.lang.String ipAddress)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService()
-				   .addEventMonitor(userId, userName, companyId, eventType,
-			ipAddress);
+				   .addEvent(companyId, userId, userName, eventType, ipAddress);
 	}
 
-	public static java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public static java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitor(start, end);
+		return getService().getEvent(start, end);
 	}
 
-	public static java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public static java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitor(userId, start, end);
+		return getService().getEvent(userId, start, end);
 	}
 
-	public static java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public static java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		long userId, java.lang.String eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitor(userId, eventType, start, end);
+		return getService().getEvent(userId, eventType, start, end);
 	}
 
-	public static java.util.List<com.amf.registration.model.EventMonitor> getEventMonitor(
+	public static java.util.List<com.amf.registration.model.EventMonitor> getEvent(
 		java.lang.String eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitor(eventType, start, end);
+		return getService().getEvent(eventType, start, end);
 	}
 
-	public static int getEventMonitorCount()
+	public static int getEventCount()
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitorCount();
+		return getService().getEventCount();
 	}
 
-	public static int getEventMonitorCount(long userId)
+	public static int getEventCount(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitorCount(userId);
+		return getService().getEventCount(userId);
 	}
 
-	public static int getEventMonitorCount(long userId,
-		java.lang.String eventType)
+	public static int getEventCount(long userId, java.lang.String eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitorCount(userId, eventType);
+		return getService().getEventCount(userId, eventType);
 	}
 
-	public static int getEventMonitorCount(java.lang.String eventType)
+	public static int getEventCount(java.lang.String eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEventMonitorCount(eventType);
+		return getService().getEventCount(eventType);
 	}
 
 	public static void clearService() {

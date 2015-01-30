@@ -17,7 +17,7 @@
 <%@ include file="/html/init.jsp" %>
 
 <%@ page import="com.amf.registration.model.EventMonitor" %><%@
-page import="com.amf.registration.service.EventMonitorLocalServiceUtil" %><%@
+page import="com.amf.registration.service.EventMonitorServiceUtil" %><%@
 page import="com.amf.registration.util.EventTypeConstants" %>
 
 <%@ page import="com.liferay.portal.kernel.util.FastDateFormatFactoryUtil" %>

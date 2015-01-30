@@ -56,14 +56,9 @@ portletURL.setParameter("mvcPath", "/html/search_results/view.jsp");
 						buffer.append(user.getFirstName());
 						buffer.append(StringPool.SPACE);
 						buffer.append(user.getLastName().substring(0, 1).toUpperCase());
-						buffer.append(StringPool.PERIOD);
-						buffer.append(StringPool.SPACE);
-						buffer.append(StringPool.OPEN_PARENTHESIS);
+						buffer.append(". (");
 						buffer.append(user.getScreenName());
-						buffer.append(StringPool.CLOSE_PARENTHESIS);
-						buffer.append(StringPool.SPACE);
-						buffer.append(StringPool.DASH);
-						buffer.append(StringPool.SPACE);
+						buffer.append(") - ");
 						buffer.append(user.getEmailAddress());
 						%>
 

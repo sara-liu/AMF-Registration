@@ -4,7 +4,7 @@
 <service-builder package-path="com.amf.registration">
 	<author>Sara Liu</author>
 	<namespace>Registration</namespace>
-	<entity name="EventMonitor" local-service="true" remote-service="false">
+	<entity name="EventMonitor" local-service="true" remote-service="true">
 
 		<!-- PK fields -->
 

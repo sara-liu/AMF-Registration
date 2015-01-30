@@ -170,8 +170,8 @@ public class RegistrationPortlet extends MVCPortlet {
 			address, address2, StringPool.BLANK, city, zip, stateId,
 			country.getCountryId(), typeId, false, true);
 
-		EventMonitorLocalServiceUtil.addEventMonitor(
-			user.getUserId(), user.getScreenName(), user.getCompanyId(),
+		EventMonitorLocalServiceUtil.addEvent(
+			user.getCompanyId(), user.getUserId(), user.getScreenName(),
 			EventTypeConstants.REGISTRATION, IpConstants.DEFAULT);
 	}
 

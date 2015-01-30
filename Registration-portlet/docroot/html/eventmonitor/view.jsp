@@ -19,20 +19,18 @@
 <%
 long groupId = themeDisplay.getScopeGroupId();
 
-String tabs1 = ParamUtil.getString(request, "tabs1", "All");
+String tabs1 = ParamUtil.getString(request, "tabs1", "all");
 
 PortletURL portletURL = renderResponse.createRenderURL();
 
 portletURL.setParameter("mvcPath", "/html/eventmonitor/view.jsp");
 portletURL.setParameter("tabs1", tabs1);
 
-boolean hasViewPermission = RegistrationPermission.contains(permissionChecker, groupId, PermissionModelNameConstants.REGISTRATION_MODEL, ActionKeys.VIEW);
-
 Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-MM-dd HH:mm:ss", locale);
 %>
 
 <liferay-ui:tabs
-	names="All,Registration,Login"
+	names="all,registration,login"
 	param="tabs1"
 	url="<%= portletURL.toString() %>"
 />
@@ -43,29 +41,29 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-
 		iteratorURL="<%= portletURL %>"
 	>
 
-	<%
-	long userId = themeDisplay.getUserId();
+		<%
+		long userId = themeDisplay.getUserId();
 
-	List<EventMonitor> eventMonitorResults = null;
+		List<EventMonitor> eventMonitorResults = null;
 
-	int eventMonitorCount = 0;
+		int eventMonitorCount = 0;
 
-	if (tabs1.equals(EventTypeConstants.REGISTRATION)) {
-		eventMonitorResults = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitor(EventTypeConstants.REGISTRATION, searchContainer.getStart(), searchContainer.getEnd()) : EventMonitorLocalServiceUtil.getEventMonitor(userId, EventTypeConstants.REGISTRATION, searchContainer.getStart(), searchContainer.getEnd());
+		if (tabs1.equals(EventTypeConstants.REGISTRATION)) {
+			eventMonitorResults = EventMonitorServiceUtil.getEvent(userId, EventTypeConstants.REGISTRATION, groupId, searchContainer.getStart(), searchContainer.getEnd());
 
-		eventMonitorCount = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitorCount(EventTypeConstants.REGISTRATION) : EventMonitorLocalServiceUtil.getEventMonitorCount(userId, EventTypeConstants.REGISTRATION);
-	}
-	else if (tabs1.equals(EventTypeConstants.LOGIN)) {
-		eventMonitorResults = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitor(EventTypeConstants.LOGIN, searchContainer.getStart(), searchContainer.getEnd()) : EventMonitorLocalServiceUtil.getEventMonitor(userId, EventTypeConstants.LOGIN, searchContainer.getStart(), searchContainer.getEnd());
+			eventMonitorCount = EventMonitorServiceUtil.getEventCount(userId, EventTypeConstants.REGISTRATION, groupId);
+		}
+		else if (tabs1.equals(EventTypeConstants.LOGIN)) {
+			eventMonitorResults = EventMonitorServiceUtil.getEvent(userId, EventTypeConstants.LOGIN, groupId, searchContainer.getStart(), searchContainer.getEnd());
 
-		eventMonitorCount = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitorCount(EventTypeConstants.LOGIN) : EventMonitorLocalServiceUtil.getEventMonitorCount(userId, EventTypeConstants.LOGIN);
-	}
-	else {
-		eventMonitorResults = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitor(searchContainer.getStart(), searchContainer.getEnd()) : EventMonitorLocalServiceUtil.getEventMonitor(userId, searchContainer.getStart(), searchContainer.getEnd());
+			eventMonitorCount = EventMonitorServiceUtil.getEventCount(userId, EventTypeConstants.LOGIN, groupId);
+		}
+		else {
+			eventMonitorResults = EventMonitorServiceUtil.getEvent(userId, groupId, searchContainer.getStart(), searchContainer.getEnd());
 
-		eventMonitorCount = hasViewPermission ? EventMonitorLocalServiceUtil.getEventMonitorCount() : EventMonitorLocalServiceUtil.getEventMonitorCount(userId);
-	}
-	%>
+			eventMonitorCount = EventMonitorServiceUtil.getEventCount(userId, groupId);
+		}
+		%>
 
 		<liferay-ui:search-container-results
 			results="<%= eventMonitorResults %>"
@@ -84,15 +82,15 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-
 
 				<%
 				buffer.append(dateFormatDateTime.format(eventMonitor.getStartDate()));
-				buffer.append(StringPool.THREE_SPACES);
+				buffer.append(StringPool.SPACE);
 				buffer.append(eventMonitor.getUserName());
-				buffer.append(StringPool.THREE_SPACES);
+				buffer.append(StringPool.SPACE);
 				buffer.append(StringPool.OPEN_PARENTHESIS);
 				buffer.append(String.valueOf(eventMonitor.getUserId()));
 				buffer.append(StringPool.CLOSE_PARENTHESIS);
 				buffer.append(StringPool.THREE_SPACES);
 				buffer.append(eventMonitor.getIpAddress());
-				buffer.append(StringPool.THREE_SPACES);
+				buffer.append(StringPool.SPACE);
 				buffer.append(eventMonitor.getEventType());
 				%>
 
