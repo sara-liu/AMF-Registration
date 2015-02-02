@@ -84,11 +84,9 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-
 				buffer.append(dateFormatDateTime.format(eventMonitor.getStartDate()));
 				buffer.append(StringPool.SPACE);
 				buffer.append(eventMonitor.getUserName());
-				buffer.append(StringPool.SPACE);
-				buffer.append(StringPool.OPEN_PARENTHESIS);
+				buffer.append(" (");
 				buffer.append(String.valueOf(eventMonitor.getUserId()));
-				buffer.append(StringPool.CLOSE_PARENTHESIS);
-				buffer.append(StringPool.THREE_SPACES);
+				buffer.append(") ");
 				buffer.append(eventMonitor.getIpAddress());
 				buffer.append(StringPool.SPACE);
 				buffer.append(eventMonitor.getEventType());
